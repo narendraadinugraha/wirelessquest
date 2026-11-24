@@ -9,6 +9,12 @@ import { translations, getLang, setLang, t, applyI18nToDOM } from "./services/i1
 import { BADGES, LEVELS, calculateLevel, sound } from "./services/gamification.js";
 import { exportToWord, exportToCsv } from "./services/export.js";
 import { renderTopicSimulation, renderUnifiedWorkbench } from "./services/simulations.js";
+import { 
+  renderWlanRoamingLab, 
+  renderRfHeatmapLab, 
+  renderWlanSecurityLab, 
+  renderAntennaLinkLab 
+} from "./services/wirelessLab.js";
 import { initNetQuestCityGame, cleanupNetQuestCityGame } from "./services/game3d.js";
 import {
   CONFIG,
@@ -2034,26 +2040,38 @@ function renderSimulation(container) {
 
   const MODES = [
     { 
+      id: "wlan_roaming", 
+      label: isId ? "Topologi WLAN & Roaming" : "WLAN Topology & Roaming", 
+      icon: "wifi", 
+      sub: isId ? "Simulasi BSS/ESS, pancaran sinyal RSSI & roaming mulus antar-AP (802.11r)" : "BSS/ESS coverage, RSSI signal & seamless client roaming" 
+    },
+    { 
+      id: "rf_heatmap", 
+      label: isId ? "Site Survey & Heatmap RF" : "RF Site Survey & Heatmap", 
+      icon: "radar", 
+      sub: isId ? "Pemetaan panas sinyal, uji redaman dinding beton & alokasi kanal Ch 1/6/11" : "Heatmap signal coverage, wall attenuation & non-overlapping channels" 
+    },
+    { 
+      id: "wlan_security", 
+      label: isId ? "Keamanan WPA3 & Penetrasi" : "WPA3 Security & Defense", 
+      icon: "security", 
+      sub: isId ? "Uji serangan Deauth, perbandingan WPA2 vs WPA3 SAE & proteksi PMF 802.11w" : "Deauth attack simulation, WPA2 vs WPA3 SAE & PMF 802.11w defense" 
+    },
+    { 
+      id: "antenna_link", 
+      label: isId ? "Link Budget & Antena" : "Antenna & Link Budget", 
+      icon: "cell_tower", 
+      sub: isId ? "Pola radiasi antena omni vs directional, FSPL & kliring Zona Fresnel" : "Omni vs directional radiation pattern, FSPL & Fresnel zone clearance" 
+    },
+    { 
       id: "workbench", 
-      label: isId ? "Simulasi Pengiriman Paket Data" : "Packet Transmission Simulator", 
-      icon: "send", 
-      sub: isId ? "Animasi transmisi data paket, header dissector, pengujian ping & perutean" : "Packet transmission animation, header dissector, ping & routing" 
-    },
-    { 
-      id: "topology", 
-      label: isId ? "5 Topologi Jaringan Fisik" : "5 Physical Topologies", 
-      icon: "hub", 
-      sub: isId ? "Topologi Bus, Star, Ring, Mesh, Tree & uji kabel rusak beraset interaktif" : "Bus, Star, Ring, Mesh, Tree & fault simulation with interactive assets" 
-    },
-    { 
-      id: "vlsm", 
-      label: isId ? "Kalkulator Pembagi IP (Subnetting)" : "IP Subnetting Calculator", 
-      icon: "calculate", 
-      sub: isId ? "Bagi alamat IP ruangan & hitung subnet mask" : "Subnet allocation for rooms & CIDR masks" 
+      label: isId ? "Simulator Paket Tracer" : "Packet Tracer Simulator", 
+      icon: "terminal", 
+      sub: isId ? "Terminal CLI, pengujian transmisi frame, dan inspeksi header protokol" : "CLI terminal, packet transmission, and header dissector" 
     }
   ];
 
-  let currentMode = "workbench";
+  let currentMode = "wlan_roaming";
 
   container.innerHTML = `
     <div id="sim-fullscreen-wrapper" class="max-w-7xl mx-auto space-y-6 w-full transition-all">
@@ -2066,15 +2084,15 @@ function renderSimulation(container) {
               <span class="material-symbols-outlined text-[14px]">science</span>
               ${isId ? "Laboratorium Virtual" : "Virtual Sandbox"}
             </span>
-            <span class="text-xs font-mono text-outline">NetQuest Lab v3.2</span>
+            <span class="text-xs font-mono text-outline">WirelessQuest Lab v4.0</span>
           </div>
           <h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight font-headline">
-            ${isId ? "Laboratorium Jaringan Wireless (WLAN)" : "Wireless Networking Laboratory"}
+            ${isId ? "Laboratorium Praktikum Jaringan Wireless (WLAN)" : "Wireless Networking Laboratory"}
           </h1>
           <p class="text-xs sm:text-sm text-on-surface-variant max-w-2xl leading-relaxed">
             ${isId 
-              ? "Ruang praktik interaktif visual. Anda dapat mengeksplorasi transmisi gelombang RF, standar IEEE 802.11, konfigurasi Access Point, arsitektur topologi WLAN, serta keamanan WPA3 secara mandiri."
-              : "Visual interactive wireless sandbox. Explore RF transmission, IEEE 802.11 standards, Access Point configurations, WLAN architectures, and WPA3 security."}
+              ? "Ruang praktik interaktif visual terstandarisasi. Anda dapat menguji transmisi gelombang RF, standar IEEE 802.11, konfigurasi Access Point, arsitektur topologi WLAN, keamanan WPA3 SAE, serta kalkulasi link budget antena."
+              : "Standardized visual interactive wireless laboratory. Experiment with RF transmissions, IEEE 802.11 standards, Access Point configurations, WLAN architectures, WPA3 SAE security, and antenna link budgets."}
           </p>
         </div>
 
@@ -2087,7 +2105,7 @@ function renderSimulation(container) {
 
           <div class="p-2.5 sm:p-3 bg-surface-container-low rounded-xl border border-outline-variant flex items-center gap-2.5">
             <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-              <span class="material-symbols-outlined text-xl">verified</span>
+              <span class="material-symbols-outlined text-xl">wifi</span>
             </div>
             <div class="text-left font-mono">
               <span class="text-[9px] text-outline uppercase block">${isId ? "Status Lab" : "Lab Status"}</span>
@@ -2100,21 +2118,21 @@ function renderSimulation(container) {
         </div>
       </div>
 
-      <!-- Mode Switcher (Clean 3-Tab Bar) -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <!-- Mode Switcher (Clean 5-Tab Bar) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5">
         ${MODES.map(m => `
           <button 
-            class="p-3.5 rounded-xl text-left transition-all duration-200 sim-mode-tab-btn flex flex-col gap-1.5 border cursor-pointer ${
+            class="p-3 rounded-xl text-left transition-all duration-200 sim-mode-tab-btn flex flex-col gap-1 border cursor-pointer ${
               m.id === currentMode 
                 ? "bg-primary text-on-primary border-primary shadow-sm" 
                 : "bg-surface-container-lowest text-on-surface border-outline-variant hover:bg-surface-container hover:border-outline"
             }" 
             data-mode-id="${m.id}">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-[20px]">${m.icon}</span>
-              <span class="font-bold text-sm truncate">${m.label}</span>
+            <div class="flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-[18px]">${m.icon}</span>
+              <span class="font-bold text-xs truncate">${m.label}</span>
             </div>
-            <span class="text-xs opacity-85 leading-snug">${m.sub}</span>
+            <span class="text-[11px] opacity-85 leading-snug">${m.sub}</span>
           </button>
         `).join("")}
       </div>
@@ -2198,8 +2216,20 @@ function renderSimulation(container) {
     if (!workspace) return;
     workspace.innerHTML = "";
 
-    if (modeId === "workbench") {
-      // MODE 1: Dedicated Data Packet Transmission & Routing Workbench
+    if (modeId === "wlan_roaming") {
+      // LAB 1: Interactive WLAN Topology, BSS/ESS & Seamless Roaming (802.11r/k/v)
+      renderWlanRoamingLab(workspace);
+    } else if (modeId === "rf_heatmap") {
+      // LAB 2: RF Site Survey, Wall Attenuation & Live Heatmap Coverage Planner
+      renderRfHeatmapLab(workspace);
+    } else if (modeId === "wlan_security") {
+      // LAB 3: Wireless Security, WPA3 SAE Dragonfly vs WPA2 PSK & PMF Defense
+      renderWlanSecurityLab(workspace);
+    } else if (modeId === "antenna_link") {
+      // LAB 4: Antenna Radiation Patterns, Gain dBi, FSPL & Fresnel Zone Calculator
+      renderAntennaLinkLab(workspace);
+    } else if (modeId === "workbench") {
+      // LEGACY LAB: Data Packet Transmission & Routing Workbench
       renderUnifiedWorkbench(workspace);
     } else if (modeId === "topology") {
       // MODE 2: Dedicated Topology Simulator (Bus, Star, Ring, Mesh, Tree)
@@ -2410,8 +2440,8 @@ function renderSimulation(container) {
     });
   });
 
-  // Initial render: Unified Workbench
-  renderActiveMode("workbench");
+  // Initial render: Flagship Wireless Lab (WLAN Roaming)
+  renderActiveMode("wlan_roaming");
 }
 
 // ============================================================================
