@@ -356,43 +356,43 @@ function getMockData() {
         {
           id: 1,
           topic_id: 1,
-          title: "Pengenalan Gelombang Radio & Spektrum Frekuensi Nirkabel (2.4 GHz, 5 GHz, 6 GHz)",
-          url: "https://www.youtube.com/watch?v=cNwEVYkx2Kk",
+          title: "Pengenalan Gelombang Radio & Spektrum Frekuensi Nirkabel (2.4 GHz vs 5 GHz)",
+          url: "https://www.youtube.com/watch?v=J_bf_KE5llQ",
           created_at: new Date().toISOString()
         },
         {
           id: 2,
           topic_id: 2,
-          title: "Standar IEEE 802.11 Wi-Fi: Evolusi Wi-Fi 4, 5, 6/6E hingga Wi-Fi 7 (802.11be)",
-          url: "https://www.youtube.com/watch?v=zbqrNg4C98U",
+          title: "Standar IEEE 802.11 Wi-Fi: Evolusi Wi-Fi 4, 5, 6/6E (802.11ax) hingga Wi-Fi 7",
+          url: "https://www.youtube.com/watch?v=Y7OWUg_kmK4",
           created_at: new Date().toISOString()
         },
         {
           id: 3,
           topic_id: 3,
-          title: "Arsitektur & Topologi WLAN: BSS, ESS, PtP, PtMP, WDS Mesh Nirkabel",
-          url: "https://www.youtube.com/watch?v=4tB891Fm69g",
+          title: "Arsitektur & Topologi WLAN: BSS, ESS, Wireless Access Point vs Router",
+          url: "https://www.youtube.com/watch?v=OxiY4yf6GGg",
           created_at: new Date().toISOString()
         },
         {
           id: 4,
           topic_id: 4,
-          title: "Perangkat Access Point & Karakteristik Antena Nirkabel: Omni, Directional, Fresnel Zone",
-          url: "https://www.youtube.com/watch?v=s_Ntt6eTn94",
+          title: "Perangkat Access Point & Karakteristik Antena Nirkabel: Omni, Directional, Sektoral",
+          url: "https://www.youtube.com/watch?v=b4ZcqECTLfM",
           created_at: new Date().toISOString()
         },
         {
           id: 5,
           topic_id: 5,
-          title: "Protokol Keamanan Jaringan Nirkabel: WPA2-PSK, WPA3-SAE Dragonfly & Deteksi Rogue AP",
-          url: "https://www.youtube.com/watch?v=1z0ULvg_pW8",
+          title: "Protokol Keamanan Jaringan Nirkabel: WEP, WPA, WPA2-PSK vs WPA3-SAE Dragonfly",
+          url: "https://www.youtube.com/watch?v=WZaIfyvERcA",
           created_at: new Date().toISOString()
         },
         {
           id: 6,
           topic_id: 6,
-          title: "Perencanaan RF Site Survey Heatmap & Troubleshooting Gangguan Sinyal WLAN",
-          url: "https://www.youtube.com/watch?v=kUR549yvQ6E",
+          title: "Perencanaan RF Site Survey Heatmap & Pemilihan Saluran Wi-Fi Non-Overlapping 1, 6, 11",
+          url: "https://www.youtube.com/watch?v=X3ykmJco-kI",
           created_at: new Date().toISOString()
         }
       ]
