@@ -1,11 +1,12 @@
 {
   "name": "wirelessquest",
   "version": "1.0.0",
+  "type": "module",
   "description": "WirelessQuest - Platform Pembelajaran Jaringan Nirkabel Interaktif",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
-    "build": "echo 'Static site ready'"
+    "build": "node build.js"
   },
   "keywords": [
     "wireless",

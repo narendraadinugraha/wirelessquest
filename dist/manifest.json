@@ -1,0 +1,23 @@
+{
+  "name": "WirelessQuest - Pembelajaran Jaringan Nirkabel",
+  "short_name": "WirelessQuest",
+  "description": "Media Pembelajaran Jaringan Nirkabel (WLAN / Wi-Fi) Interaktif & Laboratorium Virtual",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F8FAFC",
+  "theme_color": "#1E90FF",
+  "icons": [
+    {
+      "src": "assets/images/logo_icon.png",
+      "sizes": "192x192 256x256 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "1024x558",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

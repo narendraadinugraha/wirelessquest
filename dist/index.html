@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id" class="light" data-type="software">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="page-type" content="software">
+  <meta name="site-kind" content="software">
+  
+  <!-- SEO Best Practices -->
+  <title>WirelessQuest - Platform Pembelajaran Jaringan Nirkabel Interaktif</title>
+  <meta name="description" content="WirelessQuest adalah platform media belajar interaktif berstandar akademik untuk materi Jaringan Nirkabel (WLAN / Wi-Fi), dilengkapi simulator transmisi RF, soal HOTS teruji, dan telemetri kemajuan belajar.">
+  <meta name="keywords" content="WirelessQuest, Jaringan Nirkabel, WLAN, Wi-Fi, 802.11ax, Media Belajar Interaktif, HOTS, RF Spectrum, WPA3, Mikrotik Wireless">
+  <meta name="author" content="WirelessQuest Engineering">
+  <link rel="icon" type="image/png" href="/assets/images/logo_icon.png">
+  <link rel="apple-touch-icon" href="/assets/images/logo_icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#f8fafc">
+
+  <!-- Google Fonts & Material Symbols Outlined -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+  <!-- Supabase JS Client v2 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Three.js 3D Library (Local + CDN fallback) -->
+  <script src="/js/libs/three.min.js"></script>
+  <script src="/js/libs/GLTFLoader.js"></script>
+
+  <!-- Tailwind CSS CDN + WirelessQuest Custom Design System Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "var(--color-primary)",
+            "primary-container": "var(--color-primary-container)",
+            "on-primary": "var(--color-on-primary)",
+            "on-primary-container": "var(--color-on-primary-container)",
+            "primary-fixed": "var(--color-primary-fixed)",
+            "primary-fixed-dim": "var(--color-primary)",
+            "on-primary-fixed": "var(--color-on-primary-fixed)",
+            "on-primary-fixed-variant": "var(--color-primary-container)",
+            
+            "secondary": "var(--color-secondary)",
+            "secondary-container": "var(--color-secondary-container)",
+            "on-secondary": "var(--color-on-secondary)",
+            "on-secondary-container": "var(--color-on-secondary-container)",
+            "secondary-fixed": "var(--color-secondary-fixed)",
+            "on-secondary-fixed": "var(--color-on-secondary-fixed)",
+
+            "tertiary": "var(--color-tertiary)",
+            "tertiary-container": "var(--color-tertiary-container)",
+            "tertiary-fixed": "var(--color-tertiary-fixed)",
+            "on-tertiary-fixed": "var(--color-on-tertiary-fixed)",
+
+            "surface": "var(--color-surface)",
+            "surface-dim": "var(--color-surface-dim)",
+            "surface-bright": "var(--color-surface)",
+            "surface-container-lowest": "var(--color-surface-container-lowest)",
+            "surface-container-low": "var(--color-surface-container-low)",
+            "surface-container": "var(--color-surface-container)",
+            "surface-container-high": "var(--color-surface-container-high)",
+            "surface-container-highest": "var(--color-surface-container-highest)",
+            "surface-variant": "var(--color-surface-container-low)",
+            "on-surface": "var(--color-on-surface)",
+            "on-surface-variant": "var(--color-on-surface-variant)",
+            "outline": "var(--color-outline)",
+            "outline-variant": "var(--color-outline-variant)",
+            "surface-tint": "var(--color-primary)",
+
+            "background": "var(--color-surface)",
+            "on-background": "var(--color-on-surface)",
+            "inverse-surface": "var(--color-on-surface)",
+            "inverse-on-surface": "var(--color-surface)",
+            "inverse-primary": "var(--color-primary)",
+
+            "error": "var(--color-error)",
+            "error-container": "var(--color-error-container)",
+            "on-error": "#ffffff",
+            "on-error-container": "var(--color-error)"
+          },
+          fontFamily: {
+            sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
+            display: ["'Plus Jakarta Sans'", "Inter", "-apple-system", "sans-serif"],
+            headline: ["'Plus Jakarta Sans'", "Inter", "-apple-system", "sans-serif"],
+            mono: ["'JetBrains Mono'", "SFMono-Regular", "Consolas", "monospace"],
+            body: ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "8px",
+            "lg": "12px",
+            "xl": "16px",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "gutter-desktop": "2rem",
+            "space-xs": "0.5rem",
+            "space-sm": "0.75rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300375e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect width='18' height='18' x='3' y='3' rx='2'/><path d='M9 9h6v6H9z'/><path d='M9 1v2M15 1v2M9 21v2M15 21v2M1 9h2M1 15h2M21 9h2M21 15h2'/></svg>">
+
+  <!-- NetLearn Application Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script>
+    // Safeguard for file:// protocol (CORS blocks ES modules on file://)
+    if (window.location.protocol === 'file:') {
+      window.addEventListener('DOMContentLoaded', function() {
+        var authScreen = document.getElementById('auth-screen');
+        if (authScreen) {
+          authScreen.style.display = 'flex';
+          authScreen.innerHTML = [
+            '<div style="max-width: 560px; margin: 40px auto; padding: 28px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); font-family: sans-serif; text-align: center;">',
+            '  <div style="font-size: 42px; margin-bottom: 12px;">⚠️</div>',
+            '  <h2 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Aplikasi Dibuka Lewat Protokol File (file://)</h2>',
+            '  <p style="font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 18px;">',
+            '    Browser secara ketat memblokir module JavaScript (ES Module) saat file HTML dibuka secara langsung dari Windows Explorer / disk lokal.',
+            '  </p>',
+            '  <div style="background: #f8fafc; border: 1px dashed #0284c7; border-radius: 10px; padding: 14px; font-family: monospace; font-size: 13px; color: #0369a1; text-align: left; margin-bottom: 18px;">',
+            '    <b>Cara Menjalankan:</b><br>',
+            '    1. Buka terminal di folder project<br>',
+            '    2. Jalankan: <span style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">node server.js</span><br>',
+            '    3. Buka browser di: <a href="http://127.0.0.1:8086" style="color: #0284c7; font-weight: bold; text-decoration: underline;">http://127.0.0.1:8086</a>',
+            '  </div>',
+            '</div>'
+          ].join('');
+        }
+      });
+    }
+  </script>
+</head>
+<body class="bg-surface font-sans text-on-surface antialiased min-h-screen flex flex-col relative selection:bg-primary/20 selection:text-primary">
+
+  <!-- Standalone Dedicated Authentication Screen (Completely Separated from App Framework) -->
+  <div id="auth-screen" class="min-h-screen w-full flex items-center justify-center bg-surface p-4 sm:p-6 lg:p-8 relative z-20" style="display: none;">
+    <!-- Rendered dynamically by renderAuth() -->
+  </div>
+
+  <!-- App Main Layout Frame (Workspace Architecture with Authentic Engineering Grid) -->
+  <div id="app-root" class="min-h-screen flex flex-col w-full relative z-10 net-grid-canvas" style="display: none;">
+
+    <!-- HTB Academy Global Top Navigation Bar (Full Width Sticky Topbar) -->
+    <header class="sticky top-0 w-full h-16 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant z-40 flex items-center justify-between px-3 sm:px-4 lg:px-6 shrink-0 max-w-full">
+      
+      <!-- Left: Brand Monogram + Desktop Horizontal Nav Links -->
+      <div class="flex items-center gap-3 lg:gap-5 min-w-0 shrink">
+        <!-- Brand Monogram -->
+        <div class="flex items-center gap-2 cursor-pointer shrink-0" id="nav-brand" role="button" tabindex="0">
+          <img src="assets/images/logo_icon.png" alt="WirelessQuest Logo" class="w-8 h-8 object-contain rounded-lg shadow-xs shrink-0" />
+          <div class="flex flex-col">
+            <div class="flex items-center gap-1.5 leading-none">
+              <span class="font-extrabold text-base text-slate-900 dark:text-white tracking-tight font-display">WirelessQuest</span>
+              <span class="px-1.5 py-0.5 rounded bg-primary text-on-primary text-[8px] font-mono font-black uppercase tracking-wider">WLAN</span>
+            </div>
+            <span class="text-[9px] text-on-surface-variant font-mono mt-0.5">Wireless Networks</span>
+          </div>
+        </div>
+
+        <!-- HTB Academy Desktop Topbar Navigation Links (Visible on lg screens 1024px+) -->
+        <nav class="hidden lg:flex items-center gap-1 shrink">
+          <button class="nav-item-btn active text-xs px-2.5 py-1.5" data-view="dashboard" id="nav-btn-home">
+            <span class="material-symbols-outlined text-[17px]">dashboard</span>
+            <span class="i18n-text font-medium" data-i18n="navHome">Dashboard</span>
+          </button>
+
+          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="materials" id="nav-btn-materials">
+            <span class="material-symbols-outlined text-[17px]">menu_book</span>
+            <span class="i18n-text font-medium" data-i18n="navMaterials">Materi &amp; Modul</span>
+          </button>
+
+          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="simulation" id="nav-btn-simulation">
+            <span class="material-symbols-outlined text-[17px]">terminal</span>
+            <span class="i18n-text font-medium" data-i18n="navSimulation">Lab Simulasi</span>
+            <span class="ml-1 text-[8px] font-mono px-1 py-0.2 rounded bg-primary/20 text-primary font-bold">LAB</span>
+          </button>
+
+          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="quizzes" id="nav-btn-quizzes">
+            <span class="material-symbols-outlined text-[17px]">psychology</span>
+            <span class="i18n-text font-medium" data-i18n="navQuizzes">Evaluasi HOTS</span>
+          </button>
+
+          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="manual" id="nav-btn-manual">
+            <span class="material-symbols-outlined text-[17px]">article</span>
+            <span class="i18n-text font-medium" data-i18n="navManual">Panduan</span>
+          </button>
+
+          <button class="nav-item-btn admin-nav-btn hidden text-xs px-2.5 py-1.5" style="display: none !important;" data-view="admin" id="nav-btn-admin">
+            <span class="material-symbols-outlined text-[17px]">shield_person</span>
+            <span class="i18n-text font-medium" data-i18n="navAdmin">Panel Guru</span>
+            <span class="ml-1 text-[8px] font-mono px-1 py-0.2 rounded bg-primary text-on-primary font-bold">PRO</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Right: Tools, User Profile & Telemetry (Always Visible, shrink-0, zero overflow) -->
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 ml-auto">
+        
+        <!-- Academic Curriculum Progress Telemetry Pill (2xl screens 1440px+) -->
+        <div class="hidden 2xl:flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg text-xs font-mono whitespace-nowrap shrink-0">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-on-surface-variant font-medium">Kurikulum:</span>
+          <span class="font-bold text-primary" id="hud-curriculum-counter">0/6 Modul</span>
+        </div>
+
+        <!-- Global Command Search (Desktop xl 1280px+) -->
+        <div class="hidden xl:flex items-center relative w-36 2xl:w-48 shrink-0">
+          <span class="material-symbols-outlined absolute left-2.5 text-[15px] text-outline pointer-events-none">search</span>
+          <input 
+            type="text" 
+            id="global-search-input"
+            class="w-full h-8 pl-8 pr-7 bg-surface-container-low border border-outline-variant rounded-lg text-xs text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary font-mono" 
+            placeholder="Cari materi... ⌘K"
+          />
+        </div>
+
+        <!-- Audio Sound Effects Switch -->
+        <button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors cursor-pointer shrink-0" id="sound-toggle-btn" title="Toggle Audio FX" aria-label="Toggle Audio FX">
+          <span class="material-symbols-outlined text-[18px]" id="sound-icon">volume_up</span>
+        </button>
+
+        <!-- Language Switcher -->
+        <button class="px-2 py-1 rounded border border-outline-variant text-[11px] font-mono font-bold text-on-surface hover:bg-surface-container transition-colors cursor-pointer shrink-0" id="lang-toggle-btn" title="Switch Language">
+          <span id="current-lang-label">ID</span>
+        </button>
+
+        <!-- Top User Profile Area (Always Visible & Accessible) -->
+        <div id="top-user-area" class="flex items-center pl-1.5 sm:pl-2 border-l border-outline-variant shrink-0">
+          <!-- Populated dynamically by updateNavUser() -->
+        </div>
+
+        <!-- Mobile Menu Hamburger Button (Visible on screens below lg: 1024px) -->
+        <button id="mobile-menu-btn" class="lg:hidden p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors shrink-0" title="Buka Menu">
+          <span class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Overlay Backdrop (Inside app-root to share identical stacking context) -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop" aria-hidden="true"></div>
+
+    <!-- Mobile Slide-out Drawer (Visible on screens below lg) -->
+    <aside id="app-sidebar" class="fixed left-0 top-0 h-full w-72 max-w-[85vw] bg-surface-container-lowest z-[60] flex flex-col justify-between border-r border-outline-variant shadow-2xl lg:hidden">
+      <div class="flex flex-col flex-1 overflow-y-auto">
+        <div class="h-16 px-4 flex items-center justify-between border-b border-outline-variant shrink-0">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-sm text-slate-900 dark:text-white">WirelessQuest</span>
+          </div>
+          <button id="sidebar-close-btn" class="p-1.5 rounded-lg text-outline hover:text-on-surface" title="Tutup Menu">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+
+        <nav class="p-3 flex flex-col gap-1">
+          <button class="nav-item-btn active" data-view="dashboard">
+            <span class="material-symbols-outlined text-[18px]">dashboard</span>
+            <span>Dashboard</span>
+          </button>
+          <button class="nav-item-btn" data-view="materials">
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+            <span>Materi &amp; Modul</span>
+          </button>
+          <button class="nav-item-btn" data-view="simulation">
+            <span class="material-symbols-outlined text-[18px]">terminal</span>
+            <span>Lab Simulasi</span>
+          </button>
+          <button class="nav-item-btn" data-view="quizzes">
+            <span class="material-symbols-outlined text-[18px]">psychology</span>
+            <span>Evaluasi HOTS</span>
+          </button>
+          <button class="nav-item-btn" data-view="manual">
+            <span class="material-symbols-outlined text-[18px]">article</span>
+            <span>Panduan Pengguna</span>
+          </button>
+          <button class="nav-item-btn admin-nav-btn hidden" style="display: none !important;" data-view="admin">
+            <span class="material-symbols-outlined text-[18px]">shield_person</span>
+            <span>Panel Guru</span>
+          </button>
+          <button class="nav-item-btn" data-view="profile">
+            <span class="material-symbols-outlined text-[18px]">person</span>
+            <span>Profil</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="p-3 border-t border-outline-variant" id="nav-user-area">
+        <!-- Populated dynamically -->
+      </div>
+    </aside>
+
+    <!-- Main Workspace Container (Full Width Responsive Canvas) -->
+    <main class="flex-1 w-full max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 relative z-10" id="app-view">
+      <!-- Rendered dynamically by js/app.js -->
+    </main>
+  </div>
+
+  <!-- Global Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none" aria-live="polite"></div>
+
+  <!-- Global Modal Root -->
+  <div id="modals-root" class="relative z-50"></div>
+
+  <!-- Main JavaScript App Entrypoint (ES Module) -->
+  <script type="module" src="/js/app.js"></script>
+</body>
+</html>
