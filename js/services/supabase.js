@@ -2,10 +2,10 @@
 // Supports live Supabase Client via @supabase/supabase-js with robust live cloud integration
 
 export const CONFIG = {
-  SB_URL: (typeof localStorage !== "undefined" ? localStorage.getItem("sb_url") : null) || "",
-  SB_KEY: (typeof localStorage !== "undefined" ? localStorage.getItem("sb_key") : null) || "",
+  SB_URL: (typeof localStorage !== "undefined" ? localStorage.getItem("sb_url") : null) || "https://bvrpxoqpfwhlogmqiykw.supabase.co",
+  SB_KEY: (typeof localStorage !== "undefined" ? localStorage.getItem("sb_key") : null) || "sb_publishable_3soZqoVbex6Eb5yum7ic9Q_Q9fV9C2l",
   TEACHER_CODE: (typeof localStorage !== "undefined" ? localStorage.getItem("teacher_code") : null) || "GURU2026",
-  PROJECT_REF: ""
+  PROJECT_REF: "bvrpxoqpfwhlogmqiykw"
 };
 
 /**
