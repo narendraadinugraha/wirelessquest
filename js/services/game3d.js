@@ -43,15 +43,15 @@ export function initNetQuestCityGame(containerEl, options = {}) {
     isModalOpen: false,
     selectedCarModel: "delivery",
     availableCars: [
-      { id: "delivery", name: "Mobil Kurir Paket Data", file: "delivery.glb", speed: 0.58, accel: 0.019, desc: "Van ekspedisi pengantar paket jaringan TCP/UDP berkapasitas tinggi" },
+      { id: "delivery", name: "Mobil Teknisi Nirkabel", file: "delivery.glb", speed: 0.58, accel: 0.019, desc: "Van ekspedisi teknisi WLAN pembawa perangkat Access Point dan penganalisis sinyal RF" },
       { id: "race-future", name: "Cyber Future Supercar", file: "race-future.glb", speed: 0.68, accel: 0.024, desc: "Akselerasi kilat dan handling neon futuristik" },
       { id: "sedan-sports", name: "Sports Sedan Turbo", file: "sedan-sports.glb", speed: 0.60, accel: 0.020, desc: "Sedan sport lincah dengan drift stabil" },
-      { id: "suv-luxury", name: "Luxury Cyber SUV", file: "suv-luxury.glb", speed: 0.52, accel: 0.016, desc: "Bodi kokoh dan suspensi tangguh" },
-      { id: "police", name: "Mobil Patroli Siber", file: "police.glb", speed: 0.57, accel: 0.018, desc: "Dilengkapi sirine aura keamanan jaringan" },
+      { id: "suv-luxury", name: "Luxury Cyber SUV", file: "suv-luxury.glb", speed: 0.52, accel: 0.016, desc: "Bodi kokoh dan suspensi tangguh untuk survei tower outdoor" },
+      { id: "police", name: "Mobil Patroli Siber Wi-Fi", file: "police.glb", speed: 0.57, accel: 0.018, desc: "Dilengkapi radar deteksi Rogue AP dan spektrum analyzer" },
       { id: "race", name: "Formula Super Racer", file: "race.glb", speed: 0.70, accel: 0.025, desc: "Kecepatan maksimal tertinggi di jalan lurus" },
-      { id: "taxi", name: "Taksi Jaringan Kota", file: "taxi.glb", speed: 0.52, accel: 0.016, desc: "Mobil operasional handal di segala medan" },
-      { id: "ambulance", name: "Ambulans Respons Cepat", file: "ambulance.glb", speed: 0.54, accel: 0.017, desc: "Unit tanggap darurat infrastruktur" },
-      { id: "firetruck", name: "Truk Penyelamat Siber", file: "firetruck.glb", speed: 0.48, accel: 0.014, desc: "Kendaraan berat penanggulangan insiden" },
+      { id: "taxi", name: "Taksi Nirkabel Kota", file: "taxi.glb", speed: 0.52, accel: 0.016, desc: "Mobil operasional handal di segala medan" },
+      { id: "ambulance", name: "Unit Telemetri Nirkabel Cepat", file: "ambulance.glb", speed: 0.54, accel: 0.017, desc: "Unit tanggap darurat konektivitas rumah sakit" },
+      { id: "firetruck", name: "Truk Penyelamat Siber", file: "firetruck.glb", speed: 0.48, accel: 0.014, desc: "Kendaraan berat penanggulangan insiden nirkabel" },
       { id: "sedan", name: "Sedan Klasik", file: "sedan.glb", speed: 0.52, accel: 0.016, desc: "Mobil harian praktis dan mudah dikendalikan" }
     ]
   };
@@ -72,168 +72,168 @@ export function initNetQuestCityGame(containerEl, options = {}) {
     {
       id: 1,
       topic: 1,
-      title: isId ? "Pos 1: Pengantar Jaringan (PAN/LAN/MAN/WAN)" : "Station 1: Network Fundamentals",
+      title: isId ? "Pos 1: Gelombang Radio & Spektrum RF" : "Station 1: RF Spectrum & Radio Waves",
       district: isId ? "Persimpangan Avenue Utara (Z: -60)" : "North Avenue Junction",
       pos: { x: 0, z: -60 },
       color: 0x3b82f6,
-      icon: "lan"
+      icon: "sensors"
     },
     {
       id: 2,
       topic: 2,
-      title: isId ? "Pos 2: Topologi & Switching Domain" : "Station 2: Topologies & Switching",
+      title: isId ? "Pos 2: Standar IEEE 802.11 & Wi-Fi" : "Station 2: IEEE 802.11 & Wi-Fi Standards",
       district: isId ? "Persimpangan Avenue Timur (X: 60)" : "East Avenue Junction",
       pos: { x: 60, z: 0 },
       color: 0x8b5cf6,
-      icon: "hub"
+      icon: "wifi"
     },
     {
       id: 3,
       topic: 3,
-      title: isId ? "Pos 3: Menara Protokol OSI 7 Layer" : "Station 3: 7-Layer OSI Protocol Tower",
+      title: isId ? "Pos 3: Arsitektur & Topologi WLAN" : "Station 3: WLAN Topologies & Architecture",
       district: isId ? "Persimpangan Boulevard Selatan (Z: 60)" : "South Boulevard Junction",
       pos: { x: 0, z: 60 },
       color: 0x06b6d4,
-      icon: "layers"
+      icon: "cell_tower"
     },
     {
       id: 4,
       topic: 4,
-      title: isId ? "Pos 4: Laboratorium Subnetting IPv4 & VLSM" : "Station 4: IPv4 Subnetting Lab",
+      title: isId ? "Pos 4: Perangkat & Antena Nirkabel" : "Station 4: Wireless Devices & Antennas",
       district: isId ? "Persimpangan Avenue Barat (X: -60)" : "West Avenue Junction",
       pos: { x: -60, z: 0 },
       color: 0x10b981,
-      icon: "calculate"
+      icon: "router"
     },
     {
       id: 5,
       topic: 5,
-      title: isId ? "Pos 5: Terminal Media Kabel Fiber & UTP" : "Station 5: Fiber & UTP Media Terminal",
+      title: isId ? "Pos 5: Keamanan Jaringan Nirkabel" : "Station 5: Wireless Security & WPA3",
       district: isId ? "Persimpangan Avenue Tenggara (X: 60, Z: 60)" : "Southeast Junction",
       pos: { x: 60, z: 60 },
       color: 0xf59e0b,
-      icon: "cable"
+      icon: "security"
     },
     {
       id: 6,
       topic: 6,
-      title: isId ? "Pos 6: Gateway Layanan DNS & DHCP Server" : "Station 6: DNS & DHCP Gateway Server",
+      title: isId ? "Pos 6: Site Survey & Troubleshooting WLAN" : "Station 6: Site Survey & Troubleshooting",
       district: isId ? "Persimpangan Avenue Barat Laut (X: -60, Z: -60)" : "Northwest Junction",
       pos: { x: -60, z: -60 },
       color: 0xef4444,
-      icon: "dns"
+      icon: "troubleshoot"
     }
   ];
 
   // 6 Courier Delivery Destinations placed on BROAD AVENUE JUNCTIONS (Leluasa & Bebas Tabrakan!)
   const DELIVERY_MISSIONS = [
     {
-      id: "bank",
-      title: "Kirim Paket Finansial Terenkripsi",
-      targetName: "Bank Sentral Siber",
+      id: "wpa3",
+      title: "Kirim Kunci Keamanan WPA3-SAE Dragonfly",
+      targetName: "Tower Access Point Sentral",
       targetDistrict: "Avenue Timur Laut (X: 120, Z: -60)",
       pos: { x: 120, z: -60 },
-      type: "TCP",
-      port: 443,
-      protocol: "HTTPS / TLS 1.3",
-      question: "Untuk memastikan transfer dana perbankan tidak mengalami kehilangan data (packet loss) dan terkirim utuh, protokol transport layer apa yang wajib digunakan?",
+      type: "Wireless Security",
+      port: 80211,
+      protocol: "WPA3-SAE (Dragonfly)",
+      question: "Mengapa protokol WPA3-Personal (SAE Dragonfly) jauh lebih aman dibandingkan WPA2-PSK terhadap serangan kata sandi?",
       options: [
-        { text: "TCP (Transmission Control Protocol) karena reliable dan connection-oriented", correct: true },
-        { text: "UDP (User Datagram Protocol) tanpa konfirmasi handshake", correct: false },
-        { text: "ICMP Echo Request", correct: false },
-        { text: "ARP (Address Resolution Protocol)", correct: false }
+        { text: "WPA3-SAE mencegah offline dictionary attack dan menyediakan Forward Secrecy", correct: true },
+        { text: "WPA3 menonaktifkan seluruh transmisi data nirkabel", correct: false },
+        { text: "WPA3 membatasi koneksi hanya untuk 2 perangkat", correct: false },
+        { text: "WPA3 menggunakan enkripsi WEP 64-bit yang ringan", correct: false }
       ],
-      explanation: "TCP menjamin reliabilitas transfer dengan mekanisme Three-Way Handshake, sequence number, dan retransmission bila paket hilang."
+      explanation: "WPA3 menggunakan Simultaneous Authentication of Equals (SAE) Dragonfly Handshake yang kebal terhadap offline dictionary attack dan memiliki Forward Secrecy."
     },
     {
-      id: "media",
-      title: "Stream Siaran Langsung Olahraga",
-      targetName: "Studio Broadcast Multimedia",
+      id: "rf_spectrum",
+      title: "Analisis Interferensi Kanal Spektrum 2.4 GHz",
+      targetName: "Stasiun Pengawas RF Kominfo",
       targetDistrict: "Avenue Barat Daya (X: -120, Z: 60)",
       pos: { x: -120, z: 60 },
-      type: "UDP",
-      port: 1935,
-      protocol: "RTP / UDP",
-      question: "Siaran langsung video streaming memerlukan kecepatan tinggi dan toleran terhadap drop frame kecil. Mengapa UDP lebih tepat digunakan dibanding TCP?",
+      type: "RF Spectrum",
+      port: 2400,
+      protocol: "2.4 GHz ISM Band",
+      question: "Di wilayah Indonesia dan standar regulasi internasional pada frekuensi 2.4 GHz, saluran (channel) non-overlapping mana yang wajib digunakan agar tidak saling bertumpukan?",
       options: [
-        { text: "UDP tidak memiliki overhead acknowledgement (ACK) sehingga menghasilkan latensi paling minim", correct: true },
-        { text: "UDP secara otomatis memulihkan paket yang hilang dengan retransmisi", correct: false },
-        { text: "UDP membutuhkan waktu handshake 3 tahap yang lama", correct: false },
-        { text: "UDP mengenkripsi seluruh video dengan kunci RSA 4096-bit", correct: false }
+        { text: "Saluran 1, 6, dan 11", correct: true },
+        { text: "Saluran 1, 2, dan 3", correct: false },
+        { text: "Saluran 6, 7, dan 8", correct: false },
+        { text: "Saluran 10, 11, dan 12", correct: false }
       ],
-      explanation: "UDP connectionless dan tidak menunggu ACK, menjadikannya standar utama untuk real-time streaming dan game multiplayer."
+      explanation: "Di pita 2.4 GHz selebar 20 MHz, hanya kanal 1, 6, dan 11 yang memiliki jarak 25 MHz antar frekuensi tengah sehingga bebas dari Adjacent Channel Interference (ACI)."
     },
     {
-      id: "dns",
-      title: "Resolusi Domain Root Server",
-      targetName: "Server DNS Tier-1 Nasional",
+      id: "ptp_antenna",
+      title: "Instalasi Antena Grid Point-to-Point",
+      targetName: "Tower PtP Kampus Jarak Jauh",
       targetDistrict: "Avenue Barat Laut (X: -60, Z: -120)",
       pos: { x: -60, z: -120 },
-      type: "UDP",
-      port: 53,
-      protocol: "DNS Query / UDP",
-      question: "Ketika komputer client meminta IP dari domain 'netlearn.id', peran utama dari DNS Server pada port 53 adalah?",
+      type: "Antenna & Link",
+      port: 5800,
+      protocol: "PtP 5.8 GHz Link",
+      question: "Untuk transmisi jaringan nirkabel jarak jauh (Point-to-Point 10 Km), mengapa zona Fresnel (Fresnel Zone) minimal 60% wajib bebas dari halangan pohon atau gedung?",
       options: [
-        { text: "Menerjemahkan nama domain FQDN menjadi alamat IP tujuan", correct: true },
-        { text: "Mengubah kabel UTP menjadi sinyal fiber optik", correct: false },
-        { text: "Membagi bandwidth internet secara merata", correct: false },
-        { text: "Memblokir serangan virus pada sistem operasi", correct: false }
+        { text: "Halangan dalam zona Fresnel menyebabkan difraksi dan fase gelombang saling melemahkan sinyal utama", correct: true },
+        { text: "Halangan dapat mengubah frekuensi gelombang radio menjadi suara", correct: false },
+        { text: "Zona Fresnel hanya berfungsi sebagai pelindung petir antena", correct: false },
+        { text: "Gelombang mikro tidak dapat merambat di udara terbuka", correct: false }
       ],
-      explanation: "DNS (Domain Name System) bekerja pada port 53 untuk menerjemahkan nama domain yang mudah diingat manusia menjadi alamat IP numerik."
+      explanation: "Fresnel Zone adalah elipsoid gelombang RF. Jika terhalang lebih dari 40%, terjadi pelemahan sinyal drastis akibat interferensi fase destruktif."
     },
     {
-      id: "campus",
-      title: "Alokasi IP Massal Laboratorium",
-      targetName: "Gedung Rektorat & Lab Kampus",
+      id: "wifi6_mimo",
+      title: "Upgrade Access Point Wi-Fi 6 (802.11ax)",
+      targetName: "Gedung Auditorium & Kelas Massal",
       targetDistrict: "Boulevard Kampus Selatan (X: 0, Z: 120)",
       pos: { x: 0, z: 120 },
-      type: "UDP",
-      port: 67,
-      protocol: "DHCP DORA / UDP",
-      question: "Urutan 4 tahap proses pertukaran pesan dalam protokol DHCP untuk membagikan IP address secara dinamis kepada client adalah?",
+      type: "IEEE 802.11ax",
+      port: 5000,
+      protocol: "Wi-Fi 6 / OFDMA",
+      question: "Teknologi utama pada Wi-Fi 6 (802.11ax) yang membagi satu kanal nirkabel menjadi sub-carrier Resource Units (RU) agar dapat melayani puluhan smartphone secara bersamaan adalah?",
       options: [
-        { text: "DORA: Discover -> Offer -> Request -> Acknowledge", correct: true },
-        { text: "SYN -> SYN-ACK -> ACK -> FIN", correct: false },
-        { text: "Ping -> Traceroute -> ARP -> DNS", correct: false },
-        { text: "Connect -> Authenticate -> Authorize -> Close", correct: false }
+        { text: "OFDMA (Orthogonal Frequency Division Multiple Access)", correct: true },
+        { text: "CSMA/CD kabel coaxial", correct: false },
+        { text: "Token Ring passing", correct: false },
+        { text: "Frequency Hopping 1G", correct: false }
       ],
-      explanation: "DHCP menggunakan proses 4 langkah yang disingkat DORA: DHCPDiscover, DHCPOffer, DHCPRequest, dan DHCPAck."
+      explanation: "OFDMA membagi kanal menjadi subunit frekuensi (RU), memungkinkan banyak klien mentransmisikan data dalam slot waktu yang persis sama tanpa antre."
     },
     {
-      id: "hospital",
-      title: "Koneksi Telemetri Pasien ICU",
-      targetName: "Rumah Sakit Sentral CyberHealth",
+      id: "site_survey",
+      title: "Survei Heatmap Sinyal RSSI & SNR",
+      targetName: "Laboratorium Terpadu WirelessQuest",
       targetDistrict: "Avenue Medis Tenggara (X: 120, Z: 60)",
       pos: { x: 120, z: 60 },
-      type: "TCP",
-      port: 8883,
-      protocol: "MQTT over TLS",
-      question: "Gateway sensor medis ICU memiliki alamat 192.168.10.1 dengan prefix /26. Berapa jumlah host yang dapat dialokasikan dalam subnet tersebut?",
+      type: "Site Survey",
+      port: 9000,
+      protocol: "RF Telemetry",
+      question: "Jika hasil pengukuran sinyal Wi-Fi di laptop terbaca RSSI = -65 dBm dan tingkat Noise Floor = -90 dBm, berapa nilai SNR (Signal-to-Noise Ratio) dan apakah koneksi tersebut prima?",
       options: [
-        { text: "62 host valid (2^(32-26) - 2)", correct: true },
-        { text: "254 host valid", correct: false },
-        { text: "30 host valid", correct: false },
-        { text: "126 host valid", correct: false }
+        { text: "SNR = 25 dB, kualitas koneksi sangat baik untuk streaming dan video call", correct: true },
+        { text: "SNR = -155 dB, koneksi terputus total", correct: false },
+        { text: "SNR = 10 dB, koneksi sangat lambat dan sering disconnect", correct: false },
+        { text: "SNR tidak dapat dihitung dari nilai RSSI", correct: false }
       ],
-      explanation: "Prefix /26 menyisakan 6 host bit (32 - 26 = 6). Total host valid = 2^6 - 2 = 64 - 2 = 62 host."
+      explanation: "Formula SNR = RSSI - Noise Floor = (-65 dBm) - (-90 dBm) = +25 dB. Nilai SNR > 20 dB menunjukkan kualitas sinyal nirkabel sangat bersih dan stabil."
     },
     {
-      id: "isp",
-      title: "Sinkronisasi Routing BGP Kota",
-      targetName: "Gateway Transit Internet Global",
+      id: "wids_rogue",
+      title: "Deteksi Serangan Rogue AP & Evil Twin",
+      targetName: "Pusat Operasi Keamanan Siber (SOC)",
       targetDistrict: "Boulevard Backbone Utara (X: 0, Z: -120)",
       pos: { x: 0, z: -120 },
-      type: "TCP",
-      port: 179,
-      protocol: "BGP-4 / TCP",
-      question: "Protokol routing exterior gateway yang menjadi tulang punggung pertukaran rute antar Autonomous System (AS) di seluruh dunia adalah?",
+      type: "WIDS / Security",
+      port: 8021,
+      protocol: "WIDS / 802.11w PMF",
+      question: "Access Point liar tak berizin yang memancarkan SSID sama persis dengan jaringan sekolah untuk mencuri kredensial siswa dikenal sebagai serangan apa dan cara pencegahannya?",
       options: [
-        { text: "BGP (Border Gateway Protocol) pada port TCP 179", correct: true },
-        { text: "RIP v2 (Routing Information Protocol)", correct: false },
-        { text: "OSPF Internal Router Only", correct: false },
-        { text: "STP (Spanning Tree Protocol)", correct: false }
+        { text: "Evil Twin Rogue AP, dicegah dengan WIDS/WIPS dan 802.11w Protected Management Frames", correct: true },
+        { text: "DDoS Serangan Kabel UTP", correct: false },
+        { text: "MAC Spoofing pada switch unmanaged", correct: false },
+        { text: "SQL Injection database", correct: false }
       ],
-      explanation: "BGP adalah de facto exterior routing protocol yang menghubungkan ribuan ISP dan Autonomous System global."
+      explanation: "Evil Twin adalah Rogue AP yang meniru SSID target. WIDS/WIPS dan Protected Management Frames (802.11w) mencegah peniruan deauthentication frame dan memblokir AP liar."
     }
   ];
 
@@ -996,12 +996,12 @@ export function initNetQuestCityGame(containerEl, options = {}) {
 
     // Map stations 1..6 reliably to question topics in HOTS_QUESTIONS
     const topicMap = {
-      1: ["Pengantar & Jenis Jaringan"],
-      2: ["Topologi Jaringan", "Topologi Jaringan & Perangkat Switch/Hub"],
-      3: ["Model OSI & TCP/IP", "Model OSI & Protokol Komunikasi"],
-      4: ["IP Address & Subnetting", "Pengalamatan IPv4, Subnetting & VLSM"],
-      5: ["Perangkat & Media Transmisi", "Media Transmisi & Pengkabelan"],
-      6: ["Layanan, Keamanan & Troubleshooting"]
+      1: ["Dasar Gelombang Radio & Spektrum"],
+      2: ["Standar IEEE 802.11 & Wi-Fi"],
+      3: ["Arsitektur & Topologi WLAN"],
+      4: ["Perangkat & Antena Nirkabel"],
+      5: ["Keamanan Jaringan Nirkabel"],
+      6: ["Site Survey & Troubleshooting"]
     };
 
     const targetTopics = topicMap[stationObj.config.id] || topicMap[stationObj.config.topic] || [];

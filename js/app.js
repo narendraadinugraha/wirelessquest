@@ -1,5 +1,5 @@
-// NetLearn - Main Application Controller (Stitch Architecture)
-// CS302 Computer Networks Educational Platform & Virtual Lab
+// WirelessQuest - Main Application Controller (Stitch Architecture)
+// CS302 Wireless Networks Educational Platform & Virtual Lab
 // Environment config loaded dynamically via .env
 
 import { HOTS_QUESTIONS } from "./data/questions.js";
@@ -429,7 +429,7 @@ function updateNavUser() {
     const avatar = state.currentUser.avatar || meta.avatar_url;
     const roleText = isTeacher 
       ? (getLang() === "id" ? "Guru / Instruktur" : "Instructor / TA") 
-      : (className ? `${getLang() === "id" ? "Siswa" : "Student"} • ${className}` : (getLang() === "id" ? "Siswa NetLearn" : "NetLearn Student"));
+      : (className ? `${getLang() === "id" ? "Siswa" : "Student"} • ${className}` : (getLang() === "id" ? "Siswa WirelessQuest" : "WirelessQuest Student"));
 
     const avatarHtml = avatar 
       ? `<img src="${avatar}" alt="${name}" class="w-8 h-8 rounded-full object-cover shrink-0 shadow-xs border border-outline-variant" />` 
@@ -574,7 +574,7 @@ export function navigateTo(viewName, params = {}) {
   };
 
   const titleEl = document.getElementById("header-breadcrumb-title");
-  if (titleEl) titleEl.textContent = breadcrumbMap[viewName] || "NetLearn TKJ";
+  if (titleEl) titleEl.textContent = breadcrumbMap[viewName] || "WirelessQuest TKJ";
 
   // Close mobile drawer
   document.getElementById("app-sidebar")?.classList.remove("mobile-open");
@@ -792,15 +792,15 @@ function renderAuth(container, mode = "login") {
         <div>
           <!-- Clean Brand Header with Official Logo -->
           <div class="flex items-center gap-3.5 mb-5">
-            <img src="assets/images/logo_icon.png" alt="NetLearn Logo" class="w-11 h-11 object-contain rounded-xl shadow-xs shrink-0" />
+            <img src="assets/images/logo_icon.png" alt="WirelessQuest Logo" class="w-11 h-11 object-contain rounded-xl shadow-xs shrink-0" />
             <div>
               <div class="flex items-center gap-2">
-                <h1 class="text-xl font-bold text-on-surface tracking-tight leading-none">NetLearn</h1>
+                <h1 class="text-xl font-bold text-on-surface tracking-tight leading-none">WirelessQuest</h1>
               </div>
               <p class="text-xs text-on-surface-variant mt-1">
                 ${isLogin 
-                  ? (isId ? "Web Pembelajaran Jaringan Komputer interaktif & mandiri." : "Sign in to computer networks learning platform.")
-                  : (isId ? "Buat akun baru untuk memulai pembelajaran & praktikum." : "Create a new account to access courseware & virtual lab.")}
+                  ? (isId ? "Platform Pembelajaran Jaringan Wireless (WLAN) interaktif & mandiri." : "Sign in to wireless networks learning platform.")
+                  : (isId ? "Buat akun baru untuk memulai pembelajaran & praktikum jaringan wireless." : "Create a new account to access wireless courseware & virtual lab.")}
               </p>
             </div>
           </div>
@@ -950,7 +950,7 @@ function renderAuth(container, mode = "login") {
         <!-- Authentic Laboratory Background Image -->
         <img 
           src="assets/images/login_banner.jpg" 
-          alt="Computer Networking Workstation" 
+          alt="Wireless Networking Workstation" 
           class="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-900/10"></div>
@@ -959,15 +959,15 @@ function renderAuth(container, mode = "login") {
         <div class="relative z-10 bg-slate-900/75 backdrop-blur-md border border-white/15 p-5 rounded-2xl shadow-xl space-y-2">
           <div class="flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-secondary"></span>
-            <span class="text-[11px] font-mono font-semibold tracking-wider text-sky-300 uppercase">Akademi Jaringan Komputer</span>
+            <span class="text-[11px] font-mono font-semibold tracking-wider text-sky-300 uppercase">Akademi Jaringan Wireless (WLAN)</span>
           </div>
           <h2 class="text-base font-bold text-white tracking-tight">
-            ${isId ? "Laboratorium Virtual & Kurikulum Terpadu" : "Virtual Networking Lab & Curriculum"}
+            ${isId ? "Laboratorium Virtual & Kurikulum Nirkabel Terpadu" : "Virtual Wireless Lab & Curriculum"}
           </h2>
           <p class="text-xs text-slate-300 leading-relaxed font-sans">
             ${isId 
-              ? "Platform pembelajaran interaktif untuk penguasaan arsitektur protokol jaringan, subnetting VLSM, dan praktikum simulasi secara mandiri."
-              : "An interactive educational environment for mastering network protocols, VLSM subnetting, and hands-on simulation labs."}
+              ? "Platform pembelajaran interaktif untuk penguasaan arsitektur gelombang radio, standar IEEE 802.11, keamanan WPA3, dan praktikum simulasi nirkabel mandiri."
+              : "An interactive educational environment for mastering RF spectrums, IEEE 802.11 standards, WPA3 wireless security, and virtual lab simulations."}
           </p>
         </div>
       </div>
@@ -1078,7 +1078,7 @@ function renderAuth(container, mode = "login") {
         navigateTo("admin");
         showToast(
           isId ? "Selamat Datang, Bapak/Ibu Guru!" : "Teacher Login Success!",
-          `${isId ? "Masuk ke Panel Guru NetLearn:" : "Welcome to Teacher Panel:"} ${loggedUser.name || "Guru"}`,
+          `${isId ? "Masuk ke Panel Guru WirelessQuest:" : "Welcome to Teacher Panel:"} ${loggedUser.name || "Guru"}`,
           "verified"
         );
       } else {
@@ -1243,8 +1243,8 @@ function renderDashboard(container) {
               </h1>
               <p class="text-sm text-slate-600 leading-relaxed max-w-xl">
                 ${isId 
-                  ? "Selamat datang di NetLearn. Mari jelajahi cara kerja jaringan komputer, koneksi internet, dan transmisi data melalui simulasi visual yang mudah dan menyenangkan." 
-                  : "Interactive networking workstation. Master protocol architectures, experiment on virtual lab topologies, and track your analytical HOTS competencies."}
+                  ? "Selamat datang di WirelessQuest. Mari jelajahi cara kerja jaringan wireless (WLAN), spektrum gelombang radio, dan konfigurasi transmisi data melalui simulasi visual yang interaktif." 
+                  : "Interactive wireless networking workstation. Master IEEE 802.11 architectures, experiment on virtual WLAN topologies, and track your analytical HOTS competencies."}
               </p>
             </div>
 
@@ -1509,7 +1509,7 @@ function renderDashboard(container) {
             <div class="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div class="flex items-center gap-2.5">
                 <span class="px-2.5 py-1 bg-indigo-600 text-white font-mono text-xs rounded-md font-bold">TARGET: MODUL 0${activeMod.id}</span>
-                <span class="text-xs text-slate-500 font-medium truncate">${activeMod.category || "Jaringan Komputer"}</span>
+                <span class="text-xs text-slate-500 font-medium truncate">${activeMod.category || "Jaringan Wireless"}</span>
               </div>
               <span class="text-xs text-indigo-700 font-semibold flex items-center gap-1 font-mono">
                 <span class="material-symbols-outlined text-[15px]">schedule</span>
@@ -1599,7 +1599,7 @@ function renderDashboard(container) {
                 const isModDone = readList.includes(m.id);
                 const isModActive = m.id === activeMod.id && !isModDone;
                 const mTitle = getModTitle(m);
-                const tags = modTagsMap[m.id] || ["Jaringan Komputer", "Protokol"];
+                const tags = modTagsMap[m.id] || ["Jaringan Wireless", "Wi-Fi"];
 
                 return `
                   <div class="taste-card p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 ${isModActive ? 'bg-indigo-50/40' : 'hover:bg-slate-50/70'} transition-colors">
@@ -1774,7 +1774,7 @@ function renderDashboard(container) {
                 </div>
                 <div class="min-w-0">
                   <span class="block text-xs font-bold text-slate-900 group-hover:text-amber-600 transition-colors">${isId ? "Pretest Diagnostik HOTS" : "Diagnostic Pretest"}</span>
-                  <span class="block text-[11px] text-slate-500 mt-0.5">25 Soal Cerita Analitis Jaringan Komputer</span>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">${isId ? "30 Soal Cerita Analitis Jaringan Wireless (WLAN)" : "30 HOTS Wireless Networking Case Studies"}</span>
                 </div>
               </button>
             </div>
@@ -1877,7 +1877,7 @@ async function renderMaterials(container) {
           id: dm.id,
           title_id: dm.title_id || dm.title || "Modul Tambahan",
           title_en: dm.title_en || dm.title_id || "Additional Module",
-          category: dm.category || "Jaringan Komputer",
+          category: dm.category || "Jaringan Wireless",
           readTime: dm.read_time || "10 min",
           summary_id: dm.summary || dm.summary_id || "",
           summary_en: dm.summary_en || dm.summary || "",
@@ -1907,7 +1907,7 @@ async function renderMaterials(container) {
           <div class="flex items-center gap-1.5 font-mono text-xs text-outline uppercase tracking-wider">
             <span>${isId ? "Portal Akademik" : "Academic Portal"}</span>
             <span class="text-outline-variant">/</span>
-            <span>NetLearn</span>
+            <span>WirelessQuest</span>
             <span class="text-outline-variant">/</span>
             <span class="text-on-surface font-semibold">${isId ? "Materi & Modul" : "Course Materials"}</span>
           </div>
@@ -2001,7 +2001,7 @@ async function renderMaterials(container) {
   });
 
   document.getElementById("btn-export-all-materials")?.addEventListener("click", () => {
-    let fullHtml = `<h1>Silabus Lengkap Jaringan Komputer</h1>`;
+    let fullHtml = `<h1>Silabus Lengkap Jaringan Wireless</h1>`;
     allMaterials.forEach(m => {
       fullHtml += `
         <hr/>
@@ -2010,7 +2010,7 @@ async function renderMaterials(container) {
         <div>${isId ? m.content_id : m.content_en}</div>
       `;
     });
-    exportToWord("Silabus_Lengkap_Jaringan_Komputer", "Silabus Lengkap Jaringan Komputer", fullHtml);
+    exportToWord("Silabus_Lengkap_Jaringan_Wireless", "Silabus Lengkap Jaringan Wireless", fullHtml);
     showToast("Mengunduh Semua Modul", "Seluruh modul pembelajaran diekspor ke Word.", "file_download");
   });
 }
@@ -2058,12 +2058,12 @@ function renderSimulation(container) {
             <span class="text-xs font-mono text-outline">NetQuest Lab v3.2</span>
           </div>
           <h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight font-headline">
-            ${isId ? "Laboratorium Jaringan Komputer" : "Computer Networking Laboratory"}
+            ${isId ? "Laboratorium Jaringan Wireless (WLAN)" : "Wireless Networking Laboratory"}
           </h1>
           <p class="text-xs sm:text-sm text-on-surface-variant max-w-2xl leading-relaxed">
             ${isId 
-              ? "Ruang praktik interaktif visual. Anda dapat menguji pengiriman data paket (ping & routing), mengeksplorasi 5 topologi fisik dengan aset perangkat nyata, serta menghitung subnetting VLSM secara mandiri."
-              : "Visual interactive sandbox. Test packet routing, explore 5 physical topologies with realistic hardware assets, and calculate VLSM subnets."}
+              ? "Ruang praktik interaktif visual. Anda dapat mengeksplorasi transmisi gelombang RF, standar IEEE 802.11, konfigurasi Access Point, arsitektur topologi WLAN, serta keamanan WPA3 secara mandiri."
+              : "Visual interactive wireless sandbox. Explore RF transmission, IEEE 802.11 standards, Access Point configurations, WLAN architectures, and WPA3 security."}
           </p>
         </div>
 
@@ -2531,7 +2531,7 @@ function getTestMeta(type, isId) {
     };
   }
   return {
-    title: isId ? "Kuis Jaringan Komputer" : "Computer Network Quiz",
+    title: isId ? "Kuis Jaringan Wireless" : "Wireless Network Quiz",
     badge: "KUIS",
     durationMins: 15,
     totalQuestions: HOTS_QUESTIONS.length,
@@ -2993,7 +2993,7 @@ function renderResults(container, testResult) {
       <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-2 border-b border-slate-200">
         <div>
           <div class="flex items-center gap-1.5 font-mono text-xs text-slate-500 uppercase tracking-wider">
-            <span>NetLearn</span>
+            <span>WirelessQuest</span>
             <span>/</span>
             <span>${isId ? "Asesmen" : "Assessments"}</span>
             <span>/</span>
@@ -3641,7 +3641,7 @@ function renderQuizzes(container) {
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-slate-200">
         <div>
           <div class="flex items-center gap-1.5 font-mono text-xs text-slate-500 uppercase tracking-wider">
-            <span>NetLearn</span>
+            <span>WirelessQuest</span>
             <span>/</span>
             <span>${isId ? "Asesmen" : "Assessments"}</span>
             <span>/</span>
@@ -3984,8 +3984,8 @@ async function renderAdmin(container) {
               </h1>
               <p class="text-xs sm:text-sm text-slate-300 max-w-2xl">
                 ${isId 
-                  ? "Pusat kendali pembelajaran jaringan komputer: monitoring ketuntasan siswa, manajemen kurikulum modul, bank kuis interaktif, dan diagnostik miskonsepsi butir soal." 
-                  : "Command center for computer networking: monitor cohort mastery, manage materials, build quizzes, and inspect misconception diagnostics."}
+                  ? "Pusat kendali pembelajaran jaringan wireless (WLAN): monitoring ketuntasan siswa, manajemen kurikulum modul nirkabel, bank kuis interaktif, dan diagnostik evaluasi HOTS." 
+                  : "Command center for wireless networking: monitor cohort mastery, manage wireless curriculum modules, build interactive quizzes, and inspect HOTS evaluation diagnostics."}
               </p>
             </div>
           </div>
@@ -4561,7 +4561,7 @@ async function renderAdminProgressTab(container) {
 
   document.getElementById("btn-export-cohort-csv")?.addEventListener("click", () => {
     sound.click();
-    exportToCsv("Rekapitulasi_Progres_Siswa_NetLearn", cohort);
+    exportToCsv("Rekapitulasi_Progres_Siswa_WirelessQuest", cohort);
     showToast(isId ? "Nilai Berhasil Diekspor" : "Gradebook Exported", isId ? "File CSV rekapitulasi progres dan nilai telah diunduh." : "Cohort CSV exported successfully.", "table_chart");
   });
 }
@@ -4722,7 +4722,7 @@ async function renderAdminMaterialsTab(container) {
           id: dm.id,
           title_id: dm.title_id || dm.title || "Modul Tambahan",
           title_en: dm.title_en || dm.title_id || "Additional Module",
-          category: dm.category || "Jaringan Komputer",
+          category: dm.category || "Jaringan Wireless",
           readTime: dm.read_time || "10 min",
           summary_id: dm.summary || dm.summary_id || "",
           summary_en: dm.summary_en || dm.summary || "",
@@ -4813,7 +4813,7 @@ async function renderAdminMaterialsTab(container) {
     const submitBtn = document.getElementById("btn-submit-material");
     const titleId = document.getElementById("mat-title-id")?.value.trim();
     const titleEn = document.getElementById("mat-title-en")?.value.trim() || titleId;
-    const category = document.getElementById("mat-category")?.value || "Jaringan Komputer";
+    const category = document.getElementById("mat-category")?.value || "Jaringan Wireless";
     const readTime = document.getElementById("mat-read-time")?.value.trim() || "10 min";
     const summary = document.getElementById("mat-summary")?.value.trim() || "";
     const content = document.getElementById("mat-content")?.value.trim() || "";
@@ -5620,8 +5620,8 @@ function renderManual(container) {
             <span>/</span>
             <span>${isId ? "Panduan Pengguna" : "User Guide"}</span>
           </div>
-          <h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">${book?.title || (isId ? "Panduan Pengguna Aplikasi NetLearn" : "NetLearn Application User Guide")}</h1>
-          <p class="text-xs sm:text-sm text-on-surface-variant mt-1">${book?.subtitle || (isId ? "Petunjuk lengkap tata cara penggunaan aplikasi dan laboratorium virtual NetLearn." : "Complete step-by-step user manual.")}</p>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-on-surface tracking-tight">${book?.title || (isId ? "Panduan Pengguna Aplikasi WirelessQuest" : "WirelessQuest Application User Guide")}</h1>
+          <p class="text-xs sm:text-sm text-on-surface-variant mt-1">${book?.subtitle || (isId ? "Petunjuk lengkap tata cara penggunaan aplikasi dan laboratorium virtual WirelessQuest." : "Complete step-by-step user manual.")}</p>
         </div>
         <button class="h-9 px-3.5 bg-primary hover:bg-primary-container text-on-primary font-mono text-xs font-bold rounded-lg flex items-center gap-1.5 transition-colors cursor-pointer shrink-0 shadow-xs" id="btn-export-handbook">
           <span class="material-symbols-outlined text-[16px]">file_download</span>
@@ -5687,11 +5687,11 @@ function renderManual(container) {
   `;
 
   document.getElementById("btn-export-handbook")?.addEventListener("click", () => {
-    let docHtml = `<h1>${book?.title || "Panduan Pengguna NetLearn"}</h1><p><em>${book?.subtitle || ""}</em></p><hr/>`;
+    let docHtml = `<h1>${book?.title || "Panduan Pengguna WirelessQuest"}</h1><p><em>${book?.subtitle || ""}</em></p><hr/>`;
     sections.forEach(s => {
       docHtml += `<h2>${s.title}</h2><div>${s.content}</div><hr/>`;
     });
-    exportToWord("Panduan_Pengguna_NetLearn", "Panduan Pengguna NetLearn", docHtml);
+    exportToWord("Panduan_Pengguna_WirelessQuest", "Panduan Pengguna WirelessQuest", docHtml);
     showToast(isId ? "Panduan Diunduh" : "Handbook Downloaded", isId ? "File panduan format Word berhasil diunduh." : "Exported successfully to Word format.", "file_download");
   });
 }
@@ -5701,8 +5701,8 @@ function renderManual(container) {
 // ============================================================================
 function renderProfile(container) {
   const meta = state.currentUser?.user?.user_metadata || {};
-  const studentName = state.currentUser?.name || meta.full_name || meta.name || (getLang() === "id" ? "Siswa NetLearn" : "Student");
-  const studentEmail = state.currentUser?.email || state.currentUser?.user?.email || "siswa@netlearn.edu";
+  const studentName = state.currentUser?.name || meta.full_name || meta.name || (getLang() === "id" ? "Siswa WirelessQuest" : "Student");
+  const studentEmail = state.currentUser?.email || state.currentUser?.user?.email || "siswa@wirelessquest.edu";
   const studentClass = state.currentUser?.className || meta.class_name || "";
   const studentAvatar = state.currentUser?.avatar || meta.avatar_url || "";
   const isTeacher = isUserAdmin(state.currentUser);
@@ -5737,7 +5737,7 @@ function renderProfile(container) {
               ${isTeacher ? (isId ? "Guru / Admin" : "Teacher") : (isId ? "Siswa" : "Student")}
             </span>
           </div>
-          <p class="text-xs text-on-surface-variant font-mono">${studentEmail} • ${studentClass ? `Kelas ${studentClass} • ` : ""}Kurikulum Jaringan Komputer</p>
+          <p class="text-xs text-on-surface-variant font-mono">${studentEmail} • ${studentClass ? `Kelas ${studentClass} • ` : ""}Kurikulum Jaringan Wireless (WLAN)</p>
           <div class="flex items-center gap-2 mt-1">
             <span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-mono text-[10px] font-bold">Node Verified</span>
             <span class="px-2.5 py-0.5 rounded-full bg-surface-container text-outline font-mono text-[10px]">Academic Active</span>

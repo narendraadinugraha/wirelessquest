@@ -74,9 +74,9 @@ export const translations = {
     btnStartPosttest: "Mulai Ujian Akhir Posttest",
     
     // Pretest & Posttest
-    testPreTitle: "Pretest Diagnostik Awal (25 Kasus HOTS)",
-    testPostTitle: "Ujian Posttest Akhir (25 Kasus HOTS)",
-    testNotice: "Ujian proctored berbasis studi kasus dunia nyata: subnetting CIDR/VLSM, routing OSPF/RIP, dan pemecahan masalah jaringan. Waktu: 35 menit.",
+    testPreTitle: "Pretest Diagnostik Awal (30 Kasus HOTS)",
+    testPostTitle: "Ujian Posttest Akhir (30 Kasus HOTS)",
+    testNotice: "Ujian proctored berbasis studi kasus dunia nyata: spektrum frekuensi RF, standar IEEE 802.11, arsitektur WLAN, keamanan WPA3-SAE, dan troubleshooting sinyal. Waktu: 35 menit.",
     questionCount: "Soal",
     of: "dari",
     timeElapsed: "Sisa Waktu",
@@ -114,7 +114,7 @@ export const translations = {
     btnWatchTopicVideo: "Tonton Video Materi",
 
     // Manual Book
-    manualTitle: "Panduan Pengguna NetLearn",
+    manualTitle: "Panduan Pengguna WirelessQuest",
     manualSubtitle: "Buku pegangan kurikulum resmi, panduan simulator terminal, dan referensi protokol standar.",
     btnDownloadManual: "Unduh Panduan (.doc)",
 
@@ -230,9 +230,9 @@ export const translations = {
     btnStartPosttest: "Take HOTS Posttest Exam",
 
     // Pretest & Posttest
-    testPreTitle: "Diagnostic Pretest (25 HOTS Case Scenarios)",
-    testPostTitle: "HOTS Posttest Examination (25 HOTS Case Scenarios)",
-    testNotice: "Proctored assessment covering CIDR/VLSM subnetting, OSPF routing topologies, and OSI protocol troubleshooting. Time limit: 35 minutes.",
+    testPreTitle: "Diagnostic Pretest (30 HOTS Case Scenarios)",
+    testPostTitle: "HOTS Posttest Examination (30 HOTS Case Scenarios)",
+    testNotice: "Proctored assessment covering RF spectrum, IEEE 802.11be standards, WLAN architectures, WPA3-SAE security, and wireless troubleshooting. Time limit: 35 minutes.",
     questionCount: "Question",
     of: "of",
     timeElapsed: "Time Remaining",
@@ -270,7 +270,7 @@ export const translations = {
     btnWatchTopicVideo: "Watch Lecture Video",
 
     // Manual Book
-    manualTitle: "Platform Documentation & RFC Specs",
+    manualTitle: "WirelessQuest User Manual & Documentation",
     manualSubtitle: "Official academic curriculum handbook, VT-100 CLI guides, and protocol RFC references.",
     btnDownloadManual: "Download Handbook (.doc)",
 

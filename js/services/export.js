@@ -89,7 +89,7 @@ export function exportToWord(filename, title, contentHtml) {
     ${contentHtml}
   </div>
   <div class="footer-meta">
-    <p>NetQuest - Media Pembelajaran Jaringan Komputer Interaktif | Dihasilkan secara otomatis pada: ${new Date().toLocaleString()}</p>
+    <p>WirelessQuest - Platform Media Pembelajaran Jaringan Wireless Interaktif | Dihasilkan secara otomatis pada: ${new Date().toLocaleString()}</p>
   </div>
 </body>
 </html>`;

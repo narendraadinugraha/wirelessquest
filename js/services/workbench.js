@@ -2256,7 +2256,7 @@ export function renderUnifiedWorkbench(container) {
         <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-left w-full space-y-2 font-sans animate-scale-up">
           <div class="flex items-center gap-2 text-emerald-700 font-bold font-mono">
             <span class="material-symbols-outlined text-[20px]">check_circle</span>
-            <span>HTTP/1.1 200 OK - Selamat Datang di Server Web NetLearn!</span>
+            <span>HTTP/1.1 200 OK - Selamat Datang di Server Web WirelessQuest!</span>
           </div>
           <p class="text-xs text-slate-700 leading-relaxed">
             Koneksi HTTP sukses tersambung ke <strong>${targetDev.name} (${targetDev.ip})</strong> melalui port 80.

@@ -347,42 +347,42 @@ function getMockData() {
         {
           id: 1,
           topic_id: 1,
-          title: "Pengenalan Jaringan Komputer, LAN, MAN, WAN - Dasar & Klasifikasi",
+          title: "Pengenalan Gelombang Radio & Spektrum Frekuensi Nirkabel (2.4 GHz, 5 GHz, 6 GHz)",
           url: "https://www.youtube.com/watch?v=cNwEVYkx2Kk",
           created_at: new Date().toISOString()
         },
         {
           id: 2,
           topic_id: 2,
-          title: "Topologi Jaringan Komputer: Bus, Star, Ring, Mesh, Tree",
+          title: "Standar IEEE 802.11 Wi-Fi: Evolusi Wi-Fi 4, 5, 6/6E hingga Wi-Fi 7 (802.11be)",
           url: "https://www.youtube.com/watch?v=zbqrNg4C98U",
           created_at: new Date().toISOString()
         },
         {
           id: 3,
           topic_id: 3,
-          title: "Model OSI 7 Layer & TCP/IP Dijelaskan Mudah!",
+          title: "Arsitektur & Topologi WLAN: BSS, ESS, PtP, PtMP, WDS Mesh Nirkabel",
           url: "https://www.youtube.com/watch?v=4tB891Fm69g",
           created_at: new Date().toISOString()
         },
         {
           id: 4,
           topic_id: 4,
-          title: "Panduan Lengkap Menghitung Subnetting IP Address CIDR /24 s.d /30",
+          title: "Perangkat Access Point & Karakteristik Antena Nirkabel: Omni, Directional, Fresnel Zone",
           url: "https://www.youtube.com/watch?v=s_Ntt6eTn94",
           created_at: new Date().toISOString()
         },
         {
           id: 5,
           topic_id: 5,
-          title: "Perangkat Jaringan: Hub, Switch, Router & Media UTP vs Fiber Optik",
+          title: "Protokol Keamanan Jaringan Nirkabel: WPA2-PSK, WPA3-SAE Dragonfly & Deteksi Rogue AP",
           url: "https://www.youtube.com/watch?v=1z0ULvg_pW8",
           created_at: new Date().toISOString()
         },
         {
           id: 6,
           topic_id: 6,
-          title: "Layanan Jaringan, Keamanan Firewall & Troubleshooting Diagnostik",
+          title: "Perencanaan RF Site Survey Heatmap & Troubleshooting Gangguan Sinyal WLAN",
           url: "https://www.youtube.com/watch?v=kUR549yvQ6E",
           created_at: new Date().toISOString()
         }
@@ -724,7 +724,7 @@ export async function signInAdmin({ email, password }) {
   }
 
   if (!isRecognizedAdminEmail) {
-    throw new Error("Email ini tidak terdaftar sebagai Guru/Admin. Gunakan email instruktur: narendra.23076@mhs.unesa.ac.id atau admin@netlearn.edu");
+    throw new Error("Email ini tidak terdaftar sebagai Guru/Admin. Gunakan email instruktur: narendra.23076@mhs.unesa.ac.id atau admin@wirelessquest.edu");
   }
 
   throw new Error("Kata sandi salah! Password default guru: admin123 atau password123");
