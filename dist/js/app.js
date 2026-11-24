@@ -177,7 +177,17 @@ async function initApp() {
         showStudentProfileModal(state.currentUser);
       }
       const isTeacher = isUserAdmin(state.currentUser);
-      const targetHash = window.location.hash.replace("#", "").trim();
+      let targetHash = window.location.hash.replace("#", "").trim();
+      // Bersihkan token OAuth dari URL hash agar tidak dianggap nama tab view
+      if (targetHash.startsWith("access_token=") || targetHash.startsWith("error=") || targetHash.startsWith("type=")) {
+        targetHash = "";
+        if (window.history?.replaceState) {
+          window.history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+      }
+      if (window.location.search.includes("code=") && window.history?.replaceState) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
       const validViews = isTeacher 
         ? ["admin", "materials", "profile"] 
         : ["dashboard", "materials", "simulation", "quizzes", "minigame", "pretest", "posttest", "manual", "profile"];

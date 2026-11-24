@@ -44,14 +44,18 @@ export async function loadEnvConfig() {
     } catch (_) {}
   }
 
-  // 3. Terapkan konfigurasi: localStorage pengguna diutamakan jika ada, disusul .env
+  // 3. Terapkan konfigurasi: localStorage pengguna diutamakan jika ada, disusul .env / API, lalu default bawaan
   const savedUrl = localStorage.getItem("sb_url");
   const savedKey = localStorage.getItem("sb_key");
   const savedCode = localStorage.getItem("teacher_code");
 
-  CONFIG.SB_URL = (savedUrl && savedUrl.trim() !== "") ? savedUrl.trim() : (envVars.SUPABASE_URL || "");
-  CONFIG.SB_KEY = (savedKey && savedKey.trim() !== "") ? savedKey.trim() : (envVars.SUPABASE_ANON_KEY || "");
-  CONFIG.TEACHER_CODE = (savedCode && savedCode.trim() !== "") ? savedCode.trim() : (envVars.TEACHER_CODE || "GURU2026");
+  const DEFAULT_SB_URL = "https://bvrpxoqpfwhlogmqiykw.supabase.co";
+  const DEFAULT_SB_KEY = "sb_publishable_3soZqoVbex6Eb5yum7ic9Q_Q9fV9C2l";
+  const DEFAULT_TEACHER_CODE = "GURU2026";
+
+  CONFIG.SB_URL = (savedUrl && savedUrl.trim() !== "") ? savedUrl.trim() : (envVars.SUPABASE_URL || CONFIG.SB_URL || DEFAULT_SB_URL);
+  CONFIG.SB_KEY = (savedKey && savedKey.trim() !== "") ? savedKey.trim() : (envVars.SUPABASE_ANON_KEY || CONFIG.SB_KEY || DEFAULT_SB_KEY);
+  CONFIG.TEACHER_CODE = (savedCode && savedCode.trim() !== "") ? savedCode.trim() : (envVars.TEACHER_CODE || CONFIG.TEACHER_CODE || DEFAULT_TEACHER_CODE);
 
   if (envVars.SUPABASE_PROJECT_REF) {
     CONFIG.PROJECT_REF = envVars.SUPABASE_PROJECT_REF.trim();
@@ -219,7 +223,7 @@ create trigger on_auth_user_created
 let supabaseClient = null;
 
 export function initSupabase() {
-  if (CONFIG.SB_URL && CONFIG.SB_KEY && window.supabase) {
+  if (CONFIG.SB_URL && CONFIG.SB_KEY && typeof window !== "undefined" && window.supabase) {
     try {
       supabaseClient = window.supabase.createClient(CONFIG.SB_URL, CONFIG.SB_KEY, {
         auth: {
@@ -228,14 +232,19 @@ export function initSupabase() {
           detectSessionInUrl: true
         }
       });
-      console.log("[NetQuest] Supabase Live Client Aktif:", CONFIG.SB_URL);
+      console.log("[WirelessQuest] Supabase Live Client Aktif:", CONFIG.SB_URL);
       return true;
     } catch (err) {
-      console.warn("[NetQuest] Supabase initialization failed, falling back to local:", err);
+      console.warn("[WirelessQuest] Supabase initialization failed, falling back to local:", err);
       supabaseClient = null;
     }
   }
   return false;
+}
+
+// Inisialisasi langsung saat skrip pertama kali dimuat jika window.supabase sudah ada
+if (typeof window !== "undefined" && window.supabase) {
+  initSupabase();
 }
 
 export function isUsingLiveSupabase() {

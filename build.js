@@ -17,7 +17,14 @@ function copyDirSync(src, dest) {
 }
 
 const targets = ['public', 'dist'];
-const itemsToCopy = ['index.html', 'htb-arena.html', 'manifest.json', 'css', 'js', 'assets'];
+const itemsToCopy = ['index.html', 'htb-arena.html', 'manifest.json', 'css', 'js', 'assets', 'api'];
+
+const configData = JSON.stringify({
+  SUPABASE_URL: process.env.SUPABASE_URL || 'https://bvrpxoqpfwhlogmqiykw.supabase.co',
+  SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY || 'sb_publishable_3soZqoVbex6Eb5yum7ic9Q_Q9fV9C2l',
+  SUPABASE_PROJECT_REF: process.env.SUPABASE_PROJECT_REF || 'bvrpxoqpfwhlogmqiykw',
+  TEACHER_CODE: process.env.TEACHER_CODE || 'GURU2026'
+}, null, 2);
 
 for (const target of targets) {
   fs.mkdirSync(target, { recursive: true });
@@ -31,5 +38,12 @@ for (const target of targets) {
       }
     }
   }
-  console.log(`Successfully populated ${target}/`);
+
+  // Sediakan fallback statis untuk endpoint /api/config
+  const apiDir = path.join(target, 'api');
+  fs.mkdirSync(apiDir, { recursive: true });
+  fs.writeFileSync(path.join(apiDir, 'config'), configData, 'utf-8');
+  fs.writeFileSync(path.join(apiDir, 'config.json'), configData, 'utf-8');
+
+  console.log(`Successfully populated ${target}/ with static api/config fallback`);
 }
