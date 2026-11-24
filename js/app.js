@@ -957,10 +957,11 @@ function renderAuth(container, mode = "login") {
       <!-- Right Column: Minimalist Networking Lab Banner & Brief Overview -->
       <div class="hidden lg:flex lg:col-span-6 relative overflow-hidden flex-col justify-end p-8 sm:p-10 text-white min-h-[560px]">
         
-        <!-- Authentic Laboratory Background Image -->
+        <!-- Authentic Wireless Laboratory Background Image -->
         <img 
-          src="assets/images/login_banner.jpg" 
-          alt="Wireless Networking Workstation" 
+          src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80" 
+          onerror="this.src='assets/images/login_banner.jpg'"
+          alt="Wireless Networking Workstation & WLAN Infrastructure" 
           class="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-900/10"></div>
@@ -1192,24 +1193,24 @@ function renderDashboard(container) {
     6: "assets/images/materials/mod6_dns_dhcp_dora.svg"
   };
   const modPhotoMap = {
-    1: "assets/images/datacenter_rack.jpg",
-    2: "assets/images/network_switch.jpg",
-    3: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80",
-    4: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80",
-    5: "assets/images/fiber_optics.jpg",
-    6: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
+    1: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
+    2: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
+    3: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
+    4: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+    5: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+    6: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
   };
   const activeSvg = modSvgMap[activeMod.id] || modSvgMap[1];
-  const activePhoto = modPhotoMap[activeMod.id] || "assets/images/network_switch.jpg";
+  const activePhoto = modPhotoMap[activeMod.id] || "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80";
 
   // Specific topic tags per module
   const modTagsMap = {
-    1: ["PAN / LAN / MAN / WAN", "Bandwidth", "Latensi"],
-    2: ["Star / Bus / Mesh / Ring", "Switch L2", "Collision Domain"],
-    3: ["Model OSI 7 Layer", "TCP/IP Suite", "Enkapsulasi L2-L7"],
-    4: ["IPv4 CIDR Prefix", "Subnet Mask", "Alokasi VLSM"],
-    5: ["UTP / STP T568A/B", "Serat Optik", "Router / Switch"],
-    6: ["Layanan DNS Server", "DHCP DORA Flow", "Default Gateway"]
+    1: ["Gelombang RF", "Spektrum 2.4/5/6 GHz", "Daya Sinyal dBm"],
+    2: ["Standar IEEE 802.11ax", "Wi-Fi 6 & 7", "MIMO / OFDMA"],
+    3: ["Topologi BSS / ESS", "Access Point & WLC", "Wireless Roaming"],
+    4: ["Antena Omnidirectional", "Antena Directional", "Gain dBi & Radiasi"],
+    5: ["Keamanan WPA3 SAE", "WPA2-Enterprise", "RADIUS 802.1X"],
+    6: ["Site Survey Heatmap", "Channel Planning", "Analisis RSSI & SNR"]
   };
 
   container.innerHTML = `
@@ -1218,12 +1219,12 @@ function renderDashboard(container) {
       <!-- HERO WELCOME BANNER (Authentic Photography, Delicate Architectural Grid, Anti-Slop) -->
       <section class="taste-card relative overflow-hidden rounded-2xl bg-gradient-to-r from-white via-white/95 to-slate-50 border border-slate-200/90 p-6 sm:p-8 shadow-xs" data-enter="hero">
         
-        <!-- Real Authentic Datacenter Photography (Soft Architectural Fade) -->
+        <!-- Real Authentic Wireless AP & RF Photography (Soft Architectural Fade) -->
         <div class="absolute inset-y-0 right-0 w-full sm:w-2/3 pointer-events-none select-none overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80" 
-            onerror="this.src='assets/images/datacenter_rack.jpg'"
-            alt="Modern Enterprise Data Center Infrastructure" 
+            src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80" 
+            onerror="this.src='assets/images/login_banner.jpg'"
+            alt="Modern Enterprise Wireless Network Infrastructure" 
             class="w-full h-full object-cover object-right opacity-[0.22] filter contrast-125 saturate-125"
           />
           <div class="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
@@ -1466,8 +1467,8 @@ function renderDashboard(container) {
           <!-- Card 2: Cisco Packet Tracer Realistic Simulator -->
           <div class="taste-card relative overflow-hidden rounded-2xl bg-slate-950 border border-slate-800 text-white p-5 sm:p-6 shadow-md flex flex-col justify-between group min-h-[190px]">
             <img 
-              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=900&q=80" 
-              alt="Data Center Server Switches" 
+              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80" 
+              alt="Wireless Network Laboratory & Access Points" 
               class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:scale-105 transition-transform duration-500 filter contrast-125"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
@@ -1755,25 +1756,25 @@ function renderDashboard(container) {
                 </div>
               </button>
 
-              <!-- Tool 2: Cisco Packet Tracer Lab -->
+              <!-- Tool 2: Wireless Cisco Packet Tracer Lab -->
               <button class="taste-card taste-btn p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200/80 flex items-center gap-3 transition-colors text-left cursor-pointer group" id="btn-tool-topology">
                 <div class="w-11 h-11 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-2xs">
-                  <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=200&q=80" alt="Lab Switch" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=200&q=80" alt="Lab Wireless AP" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <div class="min-w-0">
-                  <span class="block text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">${isId ? "Lab Cisco & 5 Topologi Fisik" : "Cisco Lab & 5 Topologies"}</span>
-                  <span class="block text-[11px] text-slate-500 mt-0.5">${isId ? "Simulasi PDU, inspeksi frame & CLI terminal" : "Interactive topology & packet trace"}</span>
+                  <span class="block text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">${isId ? "Lab Nirkabel & Topologi WLAN" : "Wireless Lab & WLAN Topologies"}</span>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">${isId ? "Simulasi Access Point, SSID & frame nirkabel" : "Access Point simulation & wireless frames"}</span>
                 </div>
               </button>
 
-              <!-- Tool 3: VLSM Subnet Calculator -->
+              <!-- Tool 3: RF Spectrum & Channel Calculator -->
               <button class="taste-card taste-btn p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200/80 flex items-center gap-3 transition-colors text-left cursor-pointer group" id="btn-tool-subnet">
                 <div class="w-11 h-11 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-2xs">
-                  <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=200&q=80" alt="VLSM Media" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=200&q=80" alt="RF Heatmap & Spectrum" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <div class="min-w-0">
-                  <span class="block text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">${isId ? "Kalkulator Subnetting VLSM" : "VLSM Subnet Calculator"}</span>
-                  <span class="block text-[11px] text-slate-500 mt-0.5">${isId ? "Alokasi prefix CIDR, broadcast IP & subnet mask" : "CIDR prefix allocation & binary bits"}</span>
+                  <span class="block text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">${isId ? "Kalkulator Spektrum & Kanal RF" : "RF Spectrum & Channel Planner"}</span>
+                  <span class="block text-[11px] text-slate-500 mt-0.5">${isId ? "Alokasi kanal 2.4/5 GHz & daya sinyal dBm" : "2.4/5 GHz channel allocation & dBm power"}</span>
                 </div>
               </button>
 

@@ -1,127 +1,149 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 490" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1224" />
-      <stop offset="100%" stop-color="#050811" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#050814" />
     </linearGradient>
+    <radialGradient id="heatAP1" cx="35%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#84cc16" stop-opacity="0.6" />
+      <stop offset="65%" stop-color="#eab308" stop-opacity="0.4" />
+      <stop offset="85%" stop-color="#f97316" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.05" />
+    </radialGradient>
+    <radialGradient id="heatAP2" cx="75%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8" />
+      <stop offset="35%" stop-color="#3b82f6" stop-opacity="0.6" />
+      <stop offset="65%" stop-color="#8b5cf6" stop-opacity="0.4" />
+      <stop offset="85%" stop-color="#ec4899" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.05" />
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
 
-  <rect width="880" height="490" rx="14" fill="url(#bgGrad6)" stroke="#1e293b" stroke-width="1.5"/>
+  <rect width="840" height="440" rx="14" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="1.5"/>
 
-  <!-- Title Header -->
-  <g transform="translate(30, 26)">
-    <rect x="0" y="0" width="100" height="22" rx="5" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-width="1"/>
-    <text x="50" y="15" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">MODUL 06</text>
-    <text x="112" y="16" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Layanan Jaringan: Alur DHCP D-O-R-A &amp; Hierarki Resolusi DNS</text>
-    <text x="0" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Mekanisme Otomasi IP Address Klien dan Pemetaan Nama Domain ke Alamat IP.</text>
+  <!-- Header -->
+  <g transform="translate(30, 24)">
+    <rect x="0" y="0" width="100" height="22" rx="5" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
+    <text x="50" y="15" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">MODUL 06</text>
+    <text x="112" y="16" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Perancangan RF Site Survey, Heatmap Sinyal RSSI &amp; Alokasi Kanal Wi-Fi</text>
+    <text x="0" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Metodologi pengukuran sinyal (Passive, Active, Predictive), pembacaan kontur RSSI (dBm), SNR, dan eliminasi Co-Channel Interference (CCI).</text>
   </g>
 
-  <!-- Left: DHCP D-O-R-A Sequence -->
-  <g transform="translate(30, 80)">
-    <rect width="405" height="380" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
-    <text x="20" y="24" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">1. SIKLUS 4 TAHAP DHCP (D-O-R-A)</text>
-    <text x="20" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Pemberian Alamat IP Otomatis dari Server ke Klien</text>
+  <!-- Left: Architectural Floorplan RF Heatmap Visualizer -->
+  <g transform="translate(30, 78)">
+    <rect width="400" height="328" rx="12" fill="#020617" stroke="#334155" stroke-width="1.2"/>
+    <text x="16" y="24" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">1. Peta Kontur Sinyal RF (Site Survey Heatmap)</text>
+    <text x="16" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9.5">Denah Ruang Lab &amp; Kelas SMK dengan Sebaran Coverage AP</text>
 
-    <!-- Client and Server Columns -->
-    <!-- Client Head -->
-    <rect x="35" y="55" width="80" height="30" rx="5" fill="#0284c7" stroke="#38bdf8" stroke-width="1"/>
-    <text x="75" y="74" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">KLIEN PC</text>
-    <!-- Server Head -->
-    <rect x="290" y="55" width="80" height="30" rx="5" fill="#10b981" stroke="#34d399" stroke-width="1"/>
-    <text x="330" y="74" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">DHCP SRV</text>
+    <!-- Simulated Building Floorplan Grid with Wall Obstacles -->
+    <g transform="translate(16, 50)">
+      <!-- Heatmap Fill under Walls -->
+      <rect x="0" y="0" width="368" height="195" rx="8" fill="#090d16"/>
+      <rect x="10" y="10" width="180" height="175" rx="6" fill="url(#heatAP1)"/>
+      <rect x="185" y="10" width="175" height="175" rx="6" fill="url(#heatAP2)"/>
 
-    <!-- Timeline Vertical lines -->
-    <line x1="75" y1="85" x2="75" y2="355" stroke="#334155" stroke-dasharray="4,4" stroke-width="1.5"/>
-    <line x1="330" y1="85" x2="330" y2="355" stroke="#334155" stroke-dasharray="4,4" stroke-width="1.5"/>
+      <!-- Floorplan Room Walls (Concrete & Partitions) -->
+      <rect x="5" y="5" width="358" height="185" fill="none" stroke="#64748b" stroke-width="2.5"/>
+      <line x1="185" y1="5" x2="185" y2="135" stroke="#94a3b8" stroke-width="4"/> <!-- Concrete Center Wall -->
+      <text x="185" y="148" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">Pintu Koridor</text>
+      <line x1="185" y1="152" x2="185" y2="190" stroke="#94a3b8" stroke-width="4"/>
 
-    <!-- Step 1: DISCOVER -->
-    <g transform="translate(75, 115)">
-      <line x1="0" y1="0" x2="250" y2="25" stroke="#38bdf8" stroke-width="2"/>
-      <polygon points="250,25 240,20 242,28" fill="#38bdf8"/>
-      <rect x="40" y="-8" width="170" height="20" rx="3" fill="#1e293b" stroke="#0284c7" stroke-width="1"/>
-      <text x="125" y="6" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">1. DISCOVER (Broadcast)</text>
+      <!-- AP 1 Location & Radiating Pulses -->
+      <g transform="translate(95, 75)">
+        <circle cx="0" cy="0" r="16" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+        <text x="0" y="4" fill="#10b981" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">📡</text>
+        <text x="0" y="26" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" text-anchor="middle">AP-LAB-1</text>
+        <text x="0" y="37" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="7.5" text-anchor="middle">-45 dBm (Ch 1)</text>
+      </g>
+
+      <!-- AP 2 Location & Radiating Pulses -->
+      <g transform="translate(275, 75)">
+        <circle cx="0" cy="0" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+        <text x="0" y="4" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">📡</text>
+        <text x="0" y="26" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="700" text-anchor="middle">AP-KELAS-2</text>
+        <text x="0" y="37" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="7.5" text-anchor="middle">-48 dBm (Ch 6)</text>
+      </g>
+
+      <!-- Boundary Attenuation Label -->
+      <g transform="translate(185, 80)">
+        <rect x="-42" y="-10" width="84" height="20" rx="4" fill="#0f172a" stroke="#f43f5e" stroke-width="1"/>
+        <text x="0" y="4" fill="#fb7185" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="700" text-anchor="middle">Redaman: -12 dB</text>
+      </g>
     </g>
 
-    <!-- Step 2: OFFER -->
-    <g transform="translate(75, 175)">
-      <line x1="255" y1="0" x2="5" y2="25" stroke="#10b981" stroke-width="2"/>
-      <polygon points="5,25 15,20 13,28" fill="#10b981"/>
-      <rect x="40" y="-8" width="170" height="20" rx="3" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
-      <text x="125" y="6" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">2. OFFER (IP: 192.168.1.15)</text>
-    </g>
+    <!-- RSSI Legend Bar at Bottom -->
+    <g transform="translate(16, 260)">
+      <rect width="368" height="52" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="12" y="17" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="9" font-weight="600">Skala Kualitas Sinyal RSSI:</text>
+      <g transform="translate(12, 25)">
+        <rect x="0" y="0" width="68" height="12" rx="3" fill="#10b981"/>
+        <rect x="70" y="0" width="68" height="12" rx="3" fill="#84cc16"/>
+        <rect x="140" y="0" width="68" height="12" rx="3" fill="#eab308"/>
+        <rect x="210" y="0" width="68" height="12" rx="3" fill="#f97316"/>
+        <rect x="280" y="0" width="64" height="12" rx="3" fill="#ef4444"/>
 
-    <!-- Step 3: REQUEST -->
-    <g transform="translate(75, 235)">
-      <line x1="0" y1="0" x2="250" y2="25" stroke="#f59e0b" stroke-width="2"/>
-      <polygon points="250,25 240,20 242,28" fill="#f59e0b"/>
-      <rect x="40" y="-8" width="170" height="20" rx="3" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
-      <text x="125" y="6" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">3. REQUEST (Setujui IP)</text>
-    </g>
-
-    <!-- Step 4: ACKNOWLEDGE -->
-    <g transform="translate(75, 295)">
-      <line x1="255" y1="0" x2="5" y2="25" stroke="#a855f7" stroke-width="2"/>
-      <polygon points="5,25 15,20 13,28" fill="#a855f7"/>
-      <rect x="40" y="-8" width="170" height="20" rx="3" fill="#1e293b" stroke="#a855f7" stroke-width="1"/>
-      <text x="125" y="6" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">4. ACK (Terkonfirmasi)</text>
+        <text x="34" y="22" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="7.5" text-anchor="middle">&gt; -60 dBm</text>
+        <text x="104" y="22" fill="#a3e635" font-family="'JetBrains Mono', monospace" font-size="7.5" text-anchor="middle">-67 dBm</text>
+        <text x="174" y="22" fill="#fde047" font-family="'JetBrains Mono', monospace" font-size="7.5" text-anchor="middle">-75 dBm</text>
+        <text x="244" y="22" fill="#fdba74" font-family="'JetBrains Mono', monospace" font-size="7.5" text-anchor="middle">-82 dBm</text>
+        <text x="312" y="22" fill="#fca5a5" font-family="'JetBrains Mono', monospace" font-size="7.5" text-anchor="middle">&lt; -85 dBm</text>
+      </g>
     </g>
   </g>
 
-  <!-- Right: DNS Resolution Tree -->
-  <g transform="translate(450, 80)">
-    <rect width="400" height="380" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
-    <text x="20" y="24" fill="#a78bfa" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">2. HIERARKI RESOLUSI DNS</text>
-    <text x="20" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Translasi Nama Host Domain ke Alamat IP (Port UDP 53)</text>
+  <!-- Right: Non-Overlapping Channel Architecture (2.4 GHz & 5 GHz) -->
+  <g transform="translate(445, 78)">
+    <rect width="365" height="328" rx="12" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+    <text x="16" y="24" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">2. Rencana Kanal Non-Overlapping (2.4 GHz)</text>
+    <text x="16" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9.5">Hanya 3 kanal yang tidak saling menabrak di pita 2.4 GHz (20 MHz)</text>
 
-    <!-- Hierarchy Tree Steps -->
-    <!-- Tier 1: Client Browser -->
-    <g transform="translate(20, 55)">
-      <rect width="360" height="42" rx="5" fill="#1e293b" stroke="#0284c7" stroke-width="1"/>
-      <text x="14" y="18" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">1. Klien Mengetik: https://smkn1.sch.id</text>
-      <text x="14" y="32" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9">Cek Cache Lokal → Jika tidak ada, kirim kueri ke Recursive DNS</text>
+    <!-- Spectrum Bell Curves: Channel 1, 6, 11 -->
+    <g transform="translate(18, 55)">
+      <!-- Baseline Axis -->
+      <line x1="0" y1="85" x2="330" y2="85" stroke="#475569" stroke-width="1.5"/>
+
+      <!-- Channel 1 (Cyan) -->
+      <path d="M 10 85 Q 45 10 80 85" fill="#06b6d4" fill-opacity="0.3" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="45" cy="45" r="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="45" y="49" fill="#22d3ee" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" text-anchor="middle">CH 1</text>
+      <text x="45" y="100" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">2412 MHz</text>
+
+      <!-- Channel 6 (Emerald) -->
+      <path d="M 125 85 Q 160 10 195 85" fill="#10b981" fill-opacity="0.3" stroke="#34d399" stroke-width="2"/>
+      <circle cx="160" cy="45" r="10" fill="#0f172a" stroke="#34d399"/>
+      <text x="160" y="49" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" text-anchor="middle">CH 6</text>
+      <text x="160" y="100" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">2437 MHz</text>
+
+      <!-- Channel 11 (Amber) -->
+      <path d="M 240 85 Q 275 10 310 85" fill="#f59e0b" fill-opacity="0.3" stroke="#fbbf24" stroke-width="2"/>
+      <circle cx="275" cy="45" r="10" fill="#0f172a" stroke="#fbbf24"/>
+      <text x="275" y="49" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="800" text-anchor="middle">CH 11</text>
+      <text x="275" y="100" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">2462 MHz</text>
     </g>
 
-    <!-- Down arrow -->
-    <path d="M200,98 L200,108" stroke="#38bdf8" stroke-width="1.5"/>
+    <!-- Technical Metrics Table -->
+    <g transform="translate(18, 175)" font-family="'Inter', sans-serif" font-size="9.5">
+      <rect width="330" height="38" rx="6" fill="#020617" stroke="#334155"/>
+      <text x="10" y="16" fill="#cbd5e1" font-weight="700">Co-Channel Interference (CCI):</text>
+      <text x="10" y="29" fill="#f43f5e">Dua AP berdekatan menggunakan kanal sama $\rightarrow$ Saling tunggu (CSMA/CA)</text>
 
-    <!-- Tier 2: Root Server -->
-    <g transform="translate(20, 110)">
-      <rect width="360" height="48" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-      <text x="14" y="18" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">2. Root Nameserver (Titik "." Akar)</text>
-      <text x="14" y="32" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9">13 Klaster Root Server Dunia (A s.d M) mengarahkan kueri ke:</text>
-      <text x="14" y="44" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="9">TLD Server untuk ekstensi ".id"</text>
-    </g>
+      <g transform="translate(0, 44)">
+        <rect width="330" height="38" rx="6" fill="#020617" stroke="#334155"/>
+        <text x="10" y="16" fill="#cbd5e1" font-weight="700">Adjacent Channel Interference (ACI):</text>
+        <text x="10" y="29" fill="#f59e0b">Memilih kanal tumpang tindih (misal Ch 2, 3, 4) $\rightarrow$ Rusak paket data</text>
+      </g>
 
-    <!-- Down arrow -->
-    <path d="M200,160 L200,170" stroke="#fbbf24" stroke-width="1.5"/>
-
-    <!-- Tier 3: TLD Server -->
-    <g transform="translate(20, 172)">
-      <rect width="360" height="48" rx="5" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-      <text x="14" y="18" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">3. Top-Level Domain (TLD) Server (.id / .sch.id)</text>
-      <text x="14" y="32" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9">Server pengelola domain nasional PANDI (.id). Mengarahkan ke:</text>
-      <text x="14" y="44" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="9">Authoritative Server SMKN 1</text>
-    </g>
-
-    <!-- Down arrow -->
-    <path d="M200,222 L200,232" stroke="#f59e0b" stroke-width="1.5"/>
-
-    <!-- Tier 4: Authoritative Server -->
-    <g transform="translate(20, 234)">
-      <rect width="360" height="52" rx="5" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
-      <text x="14" y="18" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">4. Authoritative Nameserver (Pemegang Rekord Resmi)</text>
-      <text x="14" y="32" fill="#cbd5e1" font-family="'Inter', sans-serif" font-size="9">Membaca DNS Zone File: Rekord A (Address Record)</text>
-      <text x="14" y="46" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="800">HASIL IP: 103.144.20.5 (Terkirim kembali ke Klien!)</text>
-    </g>
-
-    <!-- Diagnostic Commands Summary -->
-    <g transform="translate(20, 298)">
-      <rect width="360" height="66" rx="5" fill="#0284c7" fill-opacity="0.1" stroke="#0284c7" stroke-width="1"/>
-      <text x="14" y="18" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">Perintah Diagnostik DNS &amp; Konektivitas CLI:</text>
-      <text x="14" y="34" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="9">• <tspan fill="#38bdf8">nslookup smkn1.sch.id</tspan> (Uji terjemah DNS)</text>
-      <text x="14" y="48" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="9">• <tspan fill="#34d399">ping 103.144.20.5</tspan> (Uji waktu tempuh RTT)</text>
-      <text x="14" y="60" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="9">• <tspan fill="#fbbf24">tracert smkn1.sch.id</tspan> (Lacak lompatan hop router)</text>
+      <g transform="translate(0, 88)">
+        <rect width="330" height="48" rx="6" fill="#020617" stroke="#334155"/>
+        <text x="10" y="16" fill="#34d399" font-weight="700">Aturan Emas Site Survey Lapangan:</text>
+        <text x="10" y="29" fill="#e2e8f0">Target RSSI Minimum Ruang Kelas: -67 dBm (untuk Voice &amp; Video)</text>
+        <text x="10" y="41" fill="#94a3b8" font-size="8.5">SNR (Signal-to-Noise Ratio) Wajib di atas 25 dB untuk performa puncak.</text>
+      </g>
     </g>
   </g>
 </svg>
-

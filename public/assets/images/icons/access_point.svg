@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Circular Access Point Housing -->
+  <circle cx="32" cy="32" r="28" fill="#0f172a" stroke="#0ea5e9" stroke-width="2.5"/>
+  <circle cx="32" cy="32" r="22" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <circle cx="32" cy="32" r="8" fill="#0284c7"/>
+  <circle cx="32" cy="32" r="4" fill="#38bdf8"/>
+  <!-- Status LEDs -->
+  <circle cx="32" cy="18" r="2" fill="#10b981"/>
+  <circle cx="26" cy="19" r="1.5" fill="#38bdf8"/>
+  <circle cx="38" cy="19" r="1.5" fill="#38bdf8"/>
+  <!-- Radiating Wi-Fi Arcs -->
+  <path d="M 20 12 A 18 18 0 0 1 44 12" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M 14 6 A 26 26 0 0 1 50 6" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
+</svg>

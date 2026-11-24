@@ -1,177 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 440" width="100%" height="100%">
   <defs>
-    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a1224" />
-      <stop offset="100%" stop-color="#050811" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329" />
+      <stop offset="100%" stop-color="#050814" />
     </linearGradient>
-    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.4"/>
+    <linearGradient id="bssGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.05" />
+    </linearGradient>
+    <linearGradient id="essGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25" />
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.05" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
-  <rect width="880" height="500" rx="14" fill="url(#bgGrad3)" stroke="#1e293b" stroke-width="1.5"/>
+  <rect width="840" height="440" rx="14" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="1.5"/>
 
-  <!-- Title Header -->
-  <g transform="translate(30, 26)">
-    <rect x="0" y="0" width="100" height="22" rx="5" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-width="1"/>
+  <!-- Header -->
+  <g transform="translate(30, 24)">
+    <rect x="0" y="0" width="100" height="22" rx="5" fill="#0ea5e9" fill-opacity="0.2" stroke="#0ea5e9" stroke-width="1"/>
     <text x="50" y="15" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">MODUL 03</text>
-    <text x="112" y="16" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Model Referensi OSI 7 Layer vs TCP/IP &amp; Siklus Enkapsulasi PDU</text>
-    <text x="0" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Standardisasi ISO 7498, Protokol Utama, Satuan Data PDU, dan Perangkat Perantara Tiap Lapisan.</text>
+    <text x="112" y="16" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="15" font-weight="700">Topologi WLAN &amp; Arsitektur Service Set (BSS, ESS, Mesh &amp; WLC)</text>
+    <text x="0" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="11">Konsep arsitektur BSSID, ESSID terdistribusi, mekanisme seamless roaming (802.11k/v/r), dan kontroler WLC terpusat.</text>
   </g>
 
-  <!-- Left: 7 Layers of OSI Model -->
-  <g transform="translate(30, 80)">
-    <!-- Column Header -->
-    <rect x="0" y="0" width="460" height="28" rx="6" fill="#1e293b"/>
-    <text x="15" y="18" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">LAYER</text>
-    <text x="75" y="18" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">NAMA LAPISAN OSI</text>
-    <text x="260" y="18" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PDU</text>
-    <text x="340" y="18" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">PROTOKOL / CONTOH</text>
+  <!-- Left Side: BSS vs IBSS vs ESS Visual Architecture -->
+  <g transform="translate(30, 78)">
+    <!-- Section 1: BSS (Basic Service Set) -->
+    <g transform="translate(0, 0)">
+      <rect width="380" height="155" rx="10" fill="url(#bssGrad)" stroke="#0ea5e9" stroke-width="1.2"/>
+      <text x="16" y="24" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">1. BSS (Basic Service Set) — Topologi Infrastruktur</text>
+      
+      <!-- AP in Center with Radio Waves -->
+      <circle cx="100" cy="85" r="45" fill="#0284c7" fill-opacity="0.1" stroke="#0284c7" stroke-dasharray="3 3"/>
+      <circle cx="100" cy="85" r="28" fill="#0284c7" fill-opacity="0.2" stroke="#0284c7"/>
+      <circle cx="100" cy="85" r="16" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="100" y="89" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle">📡</text>
+      <text x="100" y="118" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">Access Point</text>
+      <text x="100" y="130" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">BSSID: MAC AP</text>
 
-    <!-- Layer 7 -->
-    <g transform="translate(0, 34)">
-      <rect width="460" height="44" rx="6" fill="#a855f7" fill-opacity="0.15" stroke="#a855f7" stroke-width="1"/>
-      <rect x="10" y="8" width="28" height="28" rx="4" fill="#a855f7"/>
-      <text x="24" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" text-anchor="middle">7</text>
-      <text x="50" y="21" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Application Layer</text>
-      <text x="50" y="34" fill="#c4b5fd" font-family="'Inter', sans-serif" font-size="9">Antarmuka pengguna langsung</text>
-      <rect x="250" y="12" width="60" height="20" rx="3" fill="#a855f7" fill-opacity="0.3"/>
-      <text x="280" y="26" fill="#e9d5ff" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">DATA</text>
-      <text x="335" y="26" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">HTTP, DNS, DHCP</text>
+      <!-- Connected Clients -->
+      <g transform="translate(190, 48)" font-family="'Inter', sans-serif" font-size="10">
+        <text x="0" y="15" fill="#e2e8f0">📱 Smartphone (Station)</text>
+        <text x="0" y="35" fill="#e2e8f0">💻 Laptop Mahasiswa</text>
+        <text x="0" y="55" fill="#e2e8f0">📠 Wireless IoT Device</text>
+        <text x="0" y="80" fill="#38bdf8" font-size="9.5" font-family="'JetBrains Mono', monospace">Karakteristik: 1 AP + Klien Asosiasi</text>
+        <text x="0" y="93" fill="#94a3b8" font-size="8.5">Seluruh trafik wajib melalui Access Point</text>
+      </g>
     </g>
 
-    <!-- Layer 6 -->
-    <g transform="translate(0, 84)">
-      <rect width="460" height="44" rx="6" fill="#8b5cf6" fill-opacity="0.15" stroke="#8b5cf6" stroke-width="1"/>
-      <rect x="10" y="8" width="28" height="28" rx="4" fill="#8b5cf6"/>
-      <text x="24" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" text-anchor="middle">6</text>
-      <text x="50" y="21" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Presentation Layer</text>
-      <text x="50" y="34" fill="#ddd6fe" font-family="'Inter', sans-serif" font-size="9">Enkripsi, kompresi, format</text>
-      <rect x="250" y="12" width="60" height="20" rx="3" fill="#8b5cf6" fill-opacity="0.3"/>
-      <text x="280" y="26" fill="#ede9fe" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">DATA</text>
-      <text x="335" y="26" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">SSL/TLS, JPEG, ASCII</text>
-    </g>
+    <!-- Section 2: IBSS (Ad-Hoc / P2P) -->
+    <g transform="translate(0, 170)">
+      <rect width="380" height="155" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+      <text x="16" y="24" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">2. IBSS (Independent BSS) — Mode Ad-Hoc / P2P</text>
 
-    <!-- Layer 5 -->
-    <g transform="translate(0, 134)">
-      <rect width="460" height="44" rx="6" fill="#6366f1" fill-opacity="0.15" stroke="#6366f1" stroke-width="1"/>
-      <rect x="10" y="8" width="28" height="28" rx="4" fill="#6366f1"/>
-      <text x="24" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" text-anchor="middle">5</text>
-      <text x="50" y="21" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Session Layer</text>
-      <text x="50" y="34" fill="#c7d2fe" font-family="'Inter', sans-serif" font-size="9">Buka, kelola, tutup sesi</text>
-      <rect x="250" y="12" width="60" height="20" rx="3" fill="#6366f1" fill-opacity="0.3"/>
-      <text x="280" y="26" fill="#e0e7ff" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">DATA</text>
-      <text x="335" y="26" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">RPC, NetBIOS, Sockets</text>
-    </g>
+      <!-- P2P Connected Clients -->
+      <g transform="translate(40, 50)">
+        <circle cx="40" cy="40" r="18" fill="#1e293b" stroke="#94a3b8"/>
+        <text x="40" y="44" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="13" text-anchor="middle">💻</text>
+        <text x="40" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">STA-A</text>
 
-    <!-- Layer 4 -->
-    <g transform="translate(0, 184)">
-      <rect width="460" height="44" rx="6" fill="#0284c7" fill-opacity="0.15" stroke="#0284c7" stroke-width="1"/>
-      <rect x="10" y="8" width="28" height="28" rx="4" fill="#0284c7"/>
-      <text x="24" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" text-anchor="middle">4</text>
-      <text x="50" y="21" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Transport Layer</text>
-      <text x="50" y="34" fill="#bae6fd" font-family="'Inter', sans-serif" font-size="9">End-to-end, flow control</text>
-      <rect x="250" y="12" width="60" height="20" rx="3" fill="#0284c7" fill-opacity="0.3"/>
-      <text x="280" y="26" fill="#e0f2fe" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">SEGMENT</text>
-      <text x="335" y="26" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">TCP, UDP (Port)</text>
-    </g>
+        <path d="M 65 40 L 135 40" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 4"/>
+        <text x="100" y="32" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="8.5" text-anchor="middle">Wi-Fi Direct</text>
 
-    <!-- Layer 3 -->
-    <g transform="translate(0, 234)">
-      <rect width="460" height="44" rx="6" fill="#0d9488" fill-opacity="0.15" stroke="#0d9488" stroke-width="1"/>
-      <rect x="10" y="8" width="28" height="28" rx="4" fill="#0d9488"/>
-      <text x="24" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" text-anchor="middle">3</text>
-      <text x="50" y="21" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Network Layer</text>
-      <text x="50" y="34" fill="#99f6e4" font-family="'Inter', sans-serif" font-size="9">Routing logis, path selection</text>
-      <rect x="250" y="12" width="60" height="20" rx="3" fill="#0d9488" fill-opacity="0.3"/>
-      <text x="280" y="26" fill="#ccfbf1" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">PACKET</text>
-      <text x="335" y="26" fill="#2dd4bf" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">IP (IPv4/IPv6), ICMP</text>
-    </g>
+        <circle cx="160" cy="40" r="18" fill="#1e293b" stroke="#94a3b8"/>
+        <text x="160" y="44" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="13" text-anchor="middle">💻</text>
+        <text x="160" y="70" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">STA-B</text>
+      </g>
 
-    <!-- Layer 2 -->
-    <g transform="translate(0, 284)">
-      <rect width="460" height="44" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1"/>
-      <rect x="10" y="8" width="28" height="28" rx="4" fill="#10b981"/>
-      <text x="24" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" text-anchor="middle">2</text>
-      <text x="50" y="21" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Data Link Layer</text>
-      <text x="50" y="34" fill="#a7f3d0" font-family="'Inter', sans-serif" font-size="9">MAC framing, deteksi error CRC</text>
-      <rect x="250" y="12" width="60" height="20" rx="3" fill="#10b981" fill-opacity="0.3"/>
-      <text x="280" y="26" fill="#d1fae5" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">FRAME</text>
-      <text x="335" y="26" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">Ethernet, Switch</text>
-    </g>
-
-    <!-- Layer 1 -->
-    <g transform="translate(0, 334)">
-      <rect width="460" height="44" rx="6" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="1"/>
-      <rect x="10" y="8" width="28" height="28" rx="4" fill="#f59e0b"/>
-      <text x="24" y="26" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" text-anchor="middle">1</text>
-      <text x="50" y="21" fill="#f8fafc" font-family="'Inter', sans-serif" font-size="12" font-weight="700">Physical Layer</text>
-      <text x="50" y="34" fill="#fde68a" font-family="'Inter', sans-serif" font-size="9">Sinyal listrik/cahaya biner</text>
-      <rect x="250" y="12" width="60" height="20" rx="3" fill="#f59e0b" fill-opacity="0.3"/>
-      <text x="280" y="26" fill="#fef3c7" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">BITS</text>
-      <text x="335" y="26" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="10">Kabel Cat6, Fiber Optic</text>
+      <g transform="translate(240, 52)" font-family="'Inter', sans-serif" font-size="10">
+        <text x="0" y="15" fill="#f59e0b" font-weight="700">Tanpa Access Point!</text>
+        <text x="0" y="32" fill="#cbd5e1">Komunikasi peer-to-peer</text>
+        <text x="0" y="48" fill="#94a3b8" font-size="9.5">Contoh: Apple AirDrop, Miracast,</text>
+        <text x="0" y="62" fill="#94a3b8" font-size="9.5">transfer file nirkabel langsung.</text>
+      </g>
     </g>
   </g>
 
-  <!-- Right: Encapsulation Visual -->
-  <g transform="translate(515, 80)">
-    <rect width="335" height="378" rx="10" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
-    <text x="16" y="24" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">PROSES ENKAPSULASI PDU</text>
-    <text x="16" y="38" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Penambahan Header di setiap penurunan Layer</text>
+  <!-- Right Side: ESS (Extended Service Set) with Seamless Roaming -->
+  <g transform="translate(430, 78)">
+    <rect width="380" height="325" rx="10" fill="url(#essGrad)" stroke="#10b981" stroke-width="1.2"/>
+    <text x="16" y="24" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800">3. ESS (Extended Service Set) &amp; Enterprise Roaming</text>
+    <text x="16" y="40" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="10">Gabungan multi-AP dengan satu nama SSID yang sama di gedung kampus/sekolah.</text>
 
-    <!-- Step 1: User Data -->
-    <g transform="translate(16, 52)">
-      <rect x="0" y="0" width="303" height="34" rx="5" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="1"/>
-      <text x="151" y="22" fill="#e9d5ff" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" text-anchor="middle">DATA PAYLOAD APLIKASI</text>
-    </g>
-    <!-- Arrow down -->
-    <path d="M168,92 L168,102" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrow)"/>
+    <!-- Diagram of 2 APs connected via Distribution System (Switch/DS) -->
+    <g transform="translate(20, 58)">
+      <!-- Central Switch / WLC -->
+      <rect x="110" y="10" width="120" height="32" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+      <text x="170" y="26" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">WLC / Switch DS</text>
+      <text x="170" y="36" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">CAPWAP Tunnel</text>
 
-    <!-- Step 2: Segment -->
-    <g transform="translate(16, 104)">
-      <rect x="0" y="0" width="85" height="34" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1"/>
-      <text x="42" y="21" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">TCP Hdr</text>
-      <rect x="88" y="0" width="215" height="34" rx="4" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="1"/>
-      <text x="195" y="21" fill="#e9d5ff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">DATA</text>
-    </g>
+      <!-- Trunk lines to AP 1 and AP 2 -->
+      <path d="M 130 42 L 60 85" stroke="#10b981" stroke-width="1.5"/>
+      <path d="M 210 42 L 280 85" stroke="#10b981" stroke-width="1.5"/>
 
-    <!-- Step 3: Packet -->
-    <g transform="translate(16, 156)">
-      <rect x="0" y="0" width="60" height="34" rx="4" fill="#0d9488" stroke="#2dd4bf" stroke-width="1"/>
-      <text x="30" y="21" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">IP Hdr</text>
-      <rect x="63" y="0" width="65" height="34" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1"/>
-      <text x="95" y="21" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" text-anchor="middle">TCP</text>
-      <rect x="131" y="0" width="172" height="34" rx="4" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="1"/>
-      <text x="217" y="21" fill="#e9d5ff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">DATA</text>
-    </g>
+      <!-- AP 1 (Ruang Kelas A) -->
+      <g transform="translate(25, 85)">
+        <circle cx="35" cy="35" r="32" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-dasharray="2 2"/>
+        <circle cx="35" cy="35" r="16" fill="#0f172a" stroke="#34d399" stroke-width="1.5"/>
+        <text x="35" y="39" fill="#34d399" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle">📡</text>
+        <text x="35" y="78" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">AP-01 (Kanal 1)</text>
+        <text x="35" y="90" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">SSID: "SMK-WIFI"</text>
+      </g>
 
-    <!-- Step 4: Frame -->
-    <g transform="translate(16, 208)">
-      <rect x="0" y="0" width="55" height="34" rx="4" fill="#10b981" stroke="#34d399" stroke-width="1"/>
-      <text x="27" y="21" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" text-anchor="middle">MAC Hdr</text>
-      <rect x="58" y="0" width="48" height="34" rx="4" fill="#0d9488" stroke="#2dd4bf" stroke-width="1"/>
-      <text x="82" y="21" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" text-anchor="middle">IP</text>
-      <rect x="109" y="0" width="48" height="34" rx="4" fill="#0284c7" stroke="#38bdf8" stroke-width="1"/>
-      <text x="133" y="21" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" text-anchor="middle">TCP</text>
-      <rect x="160" y="0" width="95" height="34" rx="4" fill="#a855f7" fill-opacity="0.3" stroke="#a855f7" stroke-width="1"/>
-      <text x="207" y="21" fill="#e9d5ff" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">DATA</text>
-      <rect x="258" y="0" width="45" height="34" rx="4" fill="#e11d48" stroke="#fb7185" stroke-width="1"/>
-      <text x="280" y="21" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" text-anchor="middle">CRC</text>
+      <!-- Seamless Roaming Arrow in the middle -->
+      <g transform="translate(145, 110)">
+        <path d="M 10 15 Q 25 5 40 15" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 3"/>
+        <polygon points="42,15 36,10 38,17" fill="#38bdf8"/>
+        <text x="25" y="30" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" text-anchor="middle">ROAMING</text>
+        <text x="25" y="40" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="7.5" text-anchor="middle">&lt; 50ms (802.11r)</text>
+      </g>
+
+      <!-- AP 2 (Ruang Lab B) -->
+      <g transform="translate(245, 85)">
+        <circle cx="35" cy="35" r="32" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-dasharray="2 2"/>
+        <circle cx="35" cy="35" r="16" fill="#0f172a" stroke="#34d399" stroke-width="1.5"/>
+        <text x="35" y="39" fill="#34d399" font-family="'Inter', sans-serif" font-size="12" text-anchor="middle">📡</text>
+        <text x="35" y="78" fill="#e2e8f0" font-family="'JetBrains Mono', monospace" font-size="9" text-anchor="middle">AP-02 (Kanal 6)</text>
+        <text x="35" y="90" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="8" text-anchor="middle">SSID: "SMK-WIFI"</text>
+      </g>
     </g>
 
-    <!-- Step 5: Bits Signal -->
-    <g transform="translate(16, 260)">
-      <rect x="0" y="0" width="303" height="34" rx="4" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1"/>
-      <text x="151" y="22" fill="#fbbf24" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700" text-anchor="middle">10110010 11010001 01011100 0011...</text>
-    </g>
-
-    <!-- Summary Box -->
-    <g transform="translate(16, 310)">
-      <rect x="0" y="0" width="303" height="54" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-      <text x="12" y="18" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="10" font-weight="700">De-Enkapsulasi di Sisi Penerima:</text>
-      <text x="12" y="32" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9">Frame dibuka CRC &amp; MAC → IP dibongkar Router →</text>
-      <text x="12" y="44" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="9">TCP disusun ulang → Data diterima Aplikasi utuh.</text>
+    <!-- Key Takeaway Banner -->
+    <g transform="translate(16, 255)">
+      <rect width="348" height="54" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="12" y="18" fill="#34d399" font-family="'JetBrains Mono', monospace" font-size="9.5" font-weight="700">Keunggulan Arsitektur ESS:</text>
+      <text x="12" y="32" fill="#e2e8f0" font-family="'Inter', sans-serif" font-size="9">Klien berpindah antar-ruangan tanpa putus koneksi (Fast BSS Transition).</text>
+      <text x="12" y="45" fill="#94a3b8" font-family="'Inter', sans-serif" font-size="8.5">Kanal AP diatur berbeda (Ch 1 &amp; Ch 6) untuk cegah Co-Channel Interference.</text>
     </g>
   </g>
 </svg>
-

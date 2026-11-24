@@ -331,7 +331,8 @@ function renderSimulationTopology(container) {
     server: new Image(),
     firewall: new Image(),
     cloud: new Image(),
-    packet: new Image()
+    packet: new Image(),
+    access_point: new Image()
   };
   icons.workstation.src = "assets/images/icons/workstation.svg";
   icons.laptop.src = "assets/images/icons/laptop.svg";
@@ -341,6 +342,7 @@ function renderSimulationTopology(container) {
   icons.firewall.src = "assets/images/icons/firewall.svg";
   icons.cloud.src = "assets/images/icons/cloud.svg";
   icons.packet.src = "assets/images/icons/packet.svg";
+  icons.access_point.src = "assets/images/icons/access_point.svg";
 
   let currentTopo = "bus";
   let isBroken = false;
