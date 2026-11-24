@@ -2,6 +2,15 @@
 <html lang="id" class="light" data-type="software">
 <head>
   <meta charset="UTF-8">
+  <script>
+    // Canonical Domain: Otomatis alihkan preview URL branch Vercel ke domain resmi utama
+    (function() {
+      if (typeof window !== "undefined" && (window.location.hostname.endsWith("-netlearn1.vercel.app") || window.location.hostname.includes("git-main"))) {
+        var cleanUrl = "https://wirelessquest.vercel.app" + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(cleanUrl);
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="page-type" content="software">
   <meta name="site-kind" content="software">

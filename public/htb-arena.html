@@ -2,6 +2,14 @@
 <html lang="id" class="dark">
 <head>
   <meta charset="UTF-8">
+  <script>
+    (function() {
+      if (typeof window !== "undefined" && (window.location.hostname.endsWith("-netlearn1.vercel.app") || window.location.hostname.includes("git-main"))) {
+        var cleanUrl = "https://wirelessquest.vercel.app" + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(cleanUrl);
+      }
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NetQuest - HTB Interactive Network Command Center</title>
   
