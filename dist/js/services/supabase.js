@@ -890,10 +890,16 @@ export async function signInWithGoogleEmail({ email, role = "student" }) {
 
 export async function signInWithGoogle({ role = "student" } = {}) {
   if (isUsingLiveSupabase()) {
+    // Pastikan selalu kembali ke domain utama resmi (wirelessquest.vercel.app) jika di-host di Vercel
+    const isVercelHost = typeof window !== "undefined" && window.location.hostname.includes("vercel.app");
+    const redirectUrl = isVercelHost 
+      ? "https://wirelessquest.vercel.app/" 
+      : (window.location.origin + window.location.pathname);
+
     const { data, error } = await supabaseClient.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: window.location.origin + window.location.pathname,
+        redirectTo: redirectUrl,
         queryParams: {
           access_type: "offline",
           prompt: "select_account"
