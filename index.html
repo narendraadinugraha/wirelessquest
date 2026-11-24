@@ -182,34 +182,34 @@
         </div>
 
         <!-- HTB Academy Desktop Topbar Navigation Links (Visible on lg screens 1024px+) -->
-        <nav class="hidden lg:flex items-center gap-1 shrink">
-          <button class="nav-item-btn active text-xs px-2.5 py-1.5" data-view="dashboard" id="nav-btn-home">
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-1.5 shrink-0">
+          <button class="nav-item-btn active text-xs px-2.5 py-1.5 shrink-0" data-view="dashboard" id="nav-btn-home">
             <span class="material-symbols-outlined text-[17px]">dashboard</span>
             <span class="i18n-text font-medium" data-i18n="navHome">Dashboard</span>
           </button>
 
-          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="materials" id="nav-btn-materials">
+          <button class="nav-item-btn text-xs px-2.5 py-1.5 shrink-0" data-view="materials" id="nav-btn-materials">
             <span class="material-symbols-outlined text-[17px]">menu_book</span>
             <span class="i18n-text font-medium" data-i18n="navMaterials">Materi &amp; Modul</span>
           </button>
 
-          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="simulation" id="nav-btn-simulation">
+          <button class="nav-item-btn text-xs px-2.5 py-1.5 shrink-0" data-view="simulation" id="nav-btn-simulation">
             <span class="material-symbols-outlined text-[17px]">terminal</span>
             <span class="i18n-text font-medium" data-i18n="navSimulation">Lab Simulasi</span>
             <span class="ml-1 text-[8px] font-mono px-1 py-0.2 rounded bg-primary/20 text-primary font-bold">LAB</span>
           </button>
 
-          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="quizzes" id="nav-btn-quizzes">
+          <button class="nav-item-btn text-xs px-2.5 py-1.5 shrink-0" data-view="quizzes" id="nav-btn-quizzes">
             <span class="material-symbols-outlined text-[17px]">psychology</span>
             <span class="i18n-text font-medium" data-i18n="navQuizzes">Evaluasi HOTS</span>
           </button>
 
-          <button class="nav-item-btn text-xs px-2.5 py-1.5" data-view="manual" id="nav-btn-manual">
+          <button class="nav-item-btn text-xs px-2.5 py-1.5 shrink-0" data-view="manual" id="nav-btn-manual">
             <span class="material-symbols-outlined text-[17px]">article</span>
             <span class="i18n-text font-medium" data-i18n="navManual">Panduan</span>
           </button>
 
-          <button class="nav-item-btn admin-nav-btn hidden text-xs px-2.5 py-1.5" style="display: none !important;" data-view="admin" id="nav-btn-admin">
+          <button class="nav-item-btn admin-nav-btn hidden text-xs px-2.5 py-1.5 shrink-0" style="display: none !important;" data-view="admin" id="nav-btn-admin">
             <span class="material-symbols-outlined text-[17px]">shield_person</span>
             <span class="i18n-text font-medium" data-i18n="navAdmin">Panel Guru</span>
             <span class="ml-1 text-[8px] font-mono px-1 py-0.2 rounded bg-primary text-on-primary font-bold">PRO</span>
@@ -219,20 +219,16 @@
 
       <!-- Right: Tools, User Profile & Telemetry (Always Visible, shrink-0, zero overflow) -->
       <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 ml-auto">
-        
-        <!-- Academic Curriculum Progress Telemetry Pill (2xl screens 1440px+) -->
-        <div class="hidden 2xl:flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-outline-variant rounded-lg text-xs font-mono whitespace-nowrap shrink-0">
-          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-          <span class="text-on-surface-variant font-medium">Kurikulum:</span>
-          <span class="font-bold text-primary" id="hud-curriculum-counter">0/6 Modul</span>
-        </div>
-
-        <!-- Global Command Search (Desktop xl 1280px+) -->
-        <div class="hidden xl:flex items-center relative w-36 2xl:w-48 shrink-0">
+        <!-- Global Command Search (Desktop 2xl 1440px+) -->
+        <div class="hidden 2xl:flex items-center relative w-36 2xl:w-44 shrink-0">
           <span class="material-symbols-outlined absolute left-2.5 text-[15px] text-outline pointer-events-none">search</span>
           <input 
             type="text" 
             id="global-search-input"
+            class="w-full h-8 pl-8 pr-7 bg-surface-container-low border border-outline-variant rounded-lg text-xs text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary font-mono" 
+            placeholder="Cari materi... ⌘K"
+          />
+        </div>
             class="w-full h-8 pl-8 pr-7 bg-surface-container-low border border-outline-variant rounded-lg text-xs text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary font-mono" 
             placeholder="Cari materi... ⌘K"
           />

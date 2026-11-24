@@ -367,6 +367,7 @@ h1, h2, h3, h4, .font-display, .font-headline {
   text-align: left;
   border: 1px solid transparent;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 aside .nav-item-btn {
