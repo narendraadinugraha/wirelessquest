@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="heat1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#eab308" stop-opacity="0.45"/>
+      <stop offset="80%" stop-color="#f97316" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="heat2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#10b981" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="#0b1120"/>
+
+  <!-- Floorplan Walls -->
+  <g fill="none" stroke="#475569" stroke-width="4">
+    <rect x="45" y="45" width="510" height="310" rx="6"/>
+    <line x1="250" y1="45" x2="250" y2="210"/>
+    <line x1="250" y1="260" x2="250" y2="355"/>
+    <line x1="45" y1="200" x2="180" y2="200"/>
+    <line x1="360" y1="45" x2="360" y2="170"/>
+  </g>
+
+  <!-- RF Coverage Heatmaps -->
+  <circle cx="155" cy="125" r="145" fill="url(#heat1)"/>
+  <circle cx="435" cy="240" r="165" fill="url(#heat2)"/>
+
+  <!-- AP Nodes -->
+  <g transform="translate(155, 125)">
+    <circle cx="0" cy="0" r="12" fill="#0f172a" stroke="#10b981" stroke-width="3"/>
+    <circle cx="0" cy="0" r="4" fill="#34d399"/>
+  </g>
+  <g transform="translate(435, 240)">
+    <circle cx="0" cy="0" r="12" fill="#0f172a" stroke="#06b6d4" stroke-width="3"/>
+    <circle cx="0" cy="0" r="4" fill="#38bdf8"/>
+  </g>
+
+  <!-- Channel 1, 6, 11 Indicators -->
+  <g transform="translate(55, 315)">
+    <rect x="0" y="0" width="135" height="28" rx="6" fill="#0f172a" fill-opacity="0.85" stroke="#334155"/>
+    <text x="67" y="18" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">CH 1 • CH 6 • CH 11</text>
+  </g>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <rect width="800" height="450" fill="#090f1d"/>
+  <!-- Architectural Grid -->
+  <g stroke="#1e293b" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90"/><line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/><line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="160" y1="0" x2="160" y2="450"/><line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/><line x1="640" y1="0" x2="640" y2="450"/>
+  </g>
+
+  <!-- WLAN Access Point 1 & 2 (Roaming Setup) -->
+  <g transform="translate(220, 150)">
+    <circle cx="0" cy="0" r="110" fill="#4f46e5" fill-opacity="0.14" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <circle cx="0" cy="0" r="65" fill="#4f46e5" fill-opacity="0.2" stroke="#818cf8" stroke-width="1.5"/>
+    <rect x="-24" y="-14" width="48" height="28" rx="6" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <line x1="-14" y1="-14" x2="-18" y2="-32" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="14" y1="-14" x2="18" y2="-32" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="4" fill="#34d399"/>
+  </g>
+
+  <g transform="translate(580, 150)">
+    <circle cx="0" cy="0" r="110" fill="#06b6d4" fill-opacity="0.14" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="8 6"/>
+    <circle cx="0" cy="0" r="65" fill="#06b6d4" fill-opacity="0.2" stroke="#38bdf8" stroke-width="1.5"/>
+    <rect x="-24" y="-14" width="48" height="28" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <line x1="-14" y1="-14" x2="-18" y2="-32" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="14" y1="-14" x2="18" y2="-32" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="0" cy="0" r="4" fill="#34d399"/>
+  </g>
+
+  <!-- Wired Backhaul Switch / WLC Connecting APs -->
+  <rect x="330" y="310" width="140" height="44" rx="8" fill="#0f172a" stroke="#6366f1" stroke-width="2"/>
+  <text x="400" y="337" fill="#a5b4fc" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">WLC / PoE SWITCH</text>
+  <path d="M 220 178 L 220 332 L 330 332" fill="none" stroke="#6366f1" stroke-width="2"/>
+  <path d="M 580 178 L 580 332 L 470 332" fill="none" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- Roaming Client Laptop -->
+  <g transform="translate(400, 150)">
+    <rect x="-22" y="-16" width="44" height="28" rx="4" fill="#0f172a" stroke="#34d399" stroke-width="2"/>
+    <path d="M -28 14 L 28 14 L 24 20 L -24 20 Z" fill="#34d399"/>
+    <path d="M -50 0 L -28 0 M 28 0 L 50 0" stroke="#34d399" stroke-width="2" stroke-dasharray="4 4"/>
+  </g>
+</svg>

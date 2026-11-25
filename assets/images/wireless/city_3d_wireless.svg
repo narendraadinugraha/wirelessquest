@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="city-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="bldg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#city-bg)"/>
+
+  <!-- 3D Isometric City Grid -->
+  <g stroke="#1e293b" stroke-width="1.5" opacity="0.7">
+    <line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="150" y1="310" x2="50" y2="450"/>
+    <line x1="350" y1="310" x2="310" y2="450"/>
+    <line x1="550" y1="310" x2="610" y2="450"/>
+    <line x1="700" y1="310" x2="790" y2="450"/>
+  </g>
+
+  <!-- City Buildings with Rooftop Wireless Mesh Towers -->
+  <rect x="80" y="180" width="90" height="180" rx="4" fill="url(#bldg)" stroke="#334155"/>
+  <rect x="240" y="130" width="110" height="230" rx="4" fill="url(#bldg)" stroke="#334155"/>
+  <rect x="440" y="155" width="100" height="205" rx="4" fill="url(#bldg)" stroke="#334155"/>
+  <rect x="610" y="110" width="115" height="250" rx="4" fill="url(#bldg)" stroke="#334155"/>
+
+  <!-- Lit Windows -->
+  <g fill="#38bdf8" opacity="0.35">
+    <rect x="98" y="205" width="14" height="10"/><rect x="132" y="205" width="14" height="10"/>
+    <rect x="98" y="235" width="14" height="10"/><rect x="132" y="235" width="14" height="10"/>
+    <rect x="262" y="160" width="16" height="12"/><rect x="305" y="160" width="16" height="12"/>
+    <rect x="262" y="195" width="16" height="12"/><rect x="305" y="195" width="16" height="12"/>
+    <rect x="635" y="140" width="18" height="12"/><rect x="678" y="140" width="18" height="12"/>
+    <rect x="635" y="175" width="18" height="12"/><rect x="678" y="175" width="18" height="12"/>
+  </g>
+
+  <!-- Rooftop Wireless Antennas -->
+  <g stroke="#10b981" stroke-width="3" stroke-linecap="round">
+    <line x1="125" y1="180" x2="125" y2="145"/>
+    <line x1="295" y1="130" x2="295" y2="85"/>
+    <line x1="490" y1="155" x2="490" y2="115"/>
+    <line x1="668" y1="110" x2="668" y2="68"/>
+  </g>
+
+  <!-- Glowing Wireless Mesh Links Between Towers -->
+  <g fill="none" stroke-linecap="round">
+    <line x1="125" y1="145" x2="295" y2="85" stroke="#10b981" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <line x1="295" y1="85" x2="490" y2="115" stroke="#06b6d4" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <line x1="490" y1="115" x2="668" y2="68" stroke="#10b981" stroke-width="2.5" stroke-dasharray="8 6"/>
+  </g>
+
+  <!-- Signal Pulses -->
+  <g fill="#34d399">
+    <circle cx="125" cy="145" r="5"/>
+    <circle cx="295" cy="85" r="6"/>
+    <circle cx="490" cy="115" r="5"/>
+    <circle cx="668" cy="68" r="6"/>
+  </g>
+
+  <!-- Data Courier Vehicle on Road -->
+  <g transform="translate(380, 375)">
+    <rect x="-32" y="-14" width="64" height="20" rx="6" fill="#10b981"/>
+    <rect x="-18" y="-24" width="36" height="12" rx="4" fill="#34d399"/>
+    <circle cx="-18" cy="8" r="6" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+    <circle cx="18" cy="8" r="6" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+    <!-- Wi-Fi signal above vehicle -->
+    <path d="M -8 -34 Q 0 -42 8 -34" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linecap="round"/>
+  </g>
+</svg>

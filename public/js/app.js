@@ -965,8 +965,7 @@ function renderAuth(container, mode = "login") {
         
         <!-- Authentic Wireless Laboratory Background Image -->
         <img 
-          src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80" 
-          onerror="this.src='assets/images/login_banner.jpg'"
+          src="assets/images/wireless/login_banner.svg" 
           alt="Wireless Networking Workstation & WLAN Infrastructure" 
           class="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -1199,15 +1198,15 @@ function renderDashboard(container) {
     6: "assets/images/materials/mod6_dns_dhcp_dora.svg"
   };
   const modPhotoMap = {
-    1: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
-    2: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80",
-    3: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
-    4: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
-    5: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-    6: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+    1: "assets/images/wireless/mod1_rf_spectrum.svg",
+    2: "assets/images/wireless/mod2_wifi_standards.svg",
+    3: "assets/images/wireless/mod3_wlan_topology.svg",
+    4: "assets/images/wireless/mod4_antennas.svg",
+    5: "assets/images/wireless/mod5_wpa3_security.svg",
+    6: "assets/images/wireless/rf_heatmap.svg"
   };
   const activeSvg = modSvgMap[activeMod.id] || modSvgMap[1];
-  const activePhoto = modPhotoMap[activeMod.id] || "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80";
+  const activePhoto = modPhotoMap[activeMod.id] || "assets/images/wireless/mod1_rf_spectrum.svg";
 
   // Specific topic tags per module
   const modTagsMap = {
@@ -1228,10 +1227,9 @@ function renderDashboard(container) {
         <!-- Real Authentic Wireless AP & RF Photography (Soft Architectural Fade) -->
         <div class="absolute inset-y-0 right-0 w-full sm:w-2/3 pointer-events-none select-none overflow-hidden">
           <img 
-            src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1200&q=80" 
-            onerror="this.src='assets/images/login_banner.jpg'"
+            src="assets/images/wireless/hero_banner.svg" 
             alt="Modern Enterprise Wireless Network Infrastructure" 
-            class="w-full h-full object-cover object-right opacity-[0.22] filter contrast-125 saturate-125"
+            class="w-full h-full object-cover object-right opacity-85"
           />
           <div class="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent"></div>
           <div class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
@@ -1431,9 +1429,9 @@ function renderDashboard(container) {
           <!-- Card 1: NetDrive 3D City Mini Game -->
           <div class="taste-card relative overflow-hidden rounded-2xl bg-slate-950 border border-slate-800 text-white p-5 sm:p-6 shadow-md flex flex-col justify-between group min-h-[190px]">
             <img 
-              src="https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=900&q=80" 
-              alt="Cyber City Road Infrastructure" 
-              class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:scale-105 transition-transform duration-500 filter contrast-125"
+              src="assets/images/wireless/city_3d_wireless.svg" 
+              alt="Wireless Smart City Mesh Infrastructure" 
+              class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
 
@@ -1473,9 +1471,9 @@ function renderDashboard(container) {
           <!-- Card 2: Cisco Packet Tracer Realistic Simulator -->
           <div class="taste-card relative overflow-hidden rounded-2xl bg-slate-950 border border-slate-800 text-white p-5 sm:p-6 shadow-md flex flex-col justify-between group min-h-[190px]">
             <img 
-              src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=900&q=80" 
+              src="assets/images/wireless/wireless_lab_studio.svg" 
               alt="Wireless Network Laboratory & Access Points" 
-              class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:scale-105 transition-transform duration-500 filter contrast-125"
+              class="absolute inset-0 w-full h-full object-cover opacity-55 group-hover:scale-105 transition-transform duration-500"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
 
@@ -1623,7 +1621,7 @@ function renderDashboard(container) {
                     <div class="flex items-start sm:items-center gap-3.5 min-w-0">
                       <!-- Module Authentic Thumbnail Image & Number Badge -->
                       <div class="relative w-12 h-12 rounded-xl overflow-hidden border border-slate-200/90 shrink-0 shadow-2xs group-hover:scale-105 transition-transform bg-slate-100 flex items-center justify-center">
-                        <img src="${modPhotoMap[m.id] || 'assets/images/network_switch.jpg'}" alt="Modul 0${m.id}" class="w-full h-full object-cover ${m.id === 3 || m.id === 4 || m.id === 6 ? 'p-1.5 object-contain' : ''}" />
+                        <img src="${modPhotoMap[m.id] || 'assets/images/wireless/mod1_rf_spectrum.svg'}" alt="Modul 0${m.id}" class="w-full h-full object-cover" />
                         <div class="absolute bottom-0 inset-x-0 bg-slate-900/70 backdrop-blur-xs text-[9px] font-mono text-center text-white font-bold leading-tight py-0.5">0${m.id}</div>
                       </div>
 
@@ -1754,7 +1752,7 @@ function renderDashboard(container) {
               <!-- Tool 1: 3D Mini Game Quest -->
               <button class="taste-card taste-btn p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200/80 flex items-center gap-3 transition-colors text-left cursor-pointer group" id="btn-tool-minigame">
                 <div class="w-11 h-11 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-2xs">
-                  <img src="https://images.unsplash.com/photo-1508873696983-2df5703bc20d?auto=format&fit=crop&w=200&q=80" alt="3D City" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  <img src="assets/images/wireless/city_3d_wireless.svg" alt="3D City Wireless" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <div class="min-w-0">
                   <span class="block text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">${isId ? "NetDrive 3D: Petualangan Kota" : "NetDrive 3D City Quest"}</span>
@@ -1765,7 +1763,7 @@ function renderDashboard(container) {
               <!-- Tool 2: Wireless Cisco Packet Tracer Lab -->
               <button class="taste-card taste-btn p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200/80 flex items-center gap-3 transition-colors text-left cursor-pointer group" id="btn-tool-topology">
                 <div class="w-11 h-11 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-2xs">
-                  <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=200&q=80" alt="Lab Wireless AP" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  <img src="assets/images/wireless/wireless_lab_studio.svg" alt="Lab Wireless AP" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <div class="min-w-0">
                   <span class="block text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">${isId ? "Lab Nirkabel & Topologi WLAN" : "Wireless Lab & WLAN Topologies"}</span>
@@ -1776,7 +1774,7 @@ function renderDashboard(container) {
               <!-- Tool 3: RF Spectrum & Channel Calculator -->
               <button class="taste-card taste-btn p-3 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200/80 flex items-center gap-3 transition-colors text-left cursor-pointer group" id="btn-tool-subnet">
                 <div class="w-11 h-11 rounded-lg overflow-hidden border border-slate-200 shrink-0 shadow-2xs">
-                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=200&q=80" alt="RF Heatmap & Spectrum" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  <img src="assets/images/wireless/rf_heatmap.svg" alt="RF Heatmap & Spectrum" class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                 </div>
                 <div class="min-w-0">
                   <span class="block text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">${isId ? "Kalkulator Spektrum & Kanal RF" : "RF Spectrum & Channel Planner"}</span>
@@ -6153,7 +6151,7 @@ function openVideoModal(materialId) {
   const isWatched = state.userStats.watchedVideos.includes(m.id);
   const lang = getLang();
   const isId = lang === "id";
-  const embedUrl = m.video?.embedUrl || (m.video?.url ? getYouTubeEmbedUrl(m.video.url) : (m.file_url ? getYouTubeEmbedUrl(m.file_url) : "https://www.youtube.com/embed/dQw4w9WgXcQ"));
+  const embedUrl = m.video?.embedUrl || (m.video?.url ? getYouTubeEmbedUrl(m.video.url) : (m.file_url ? getYouTubeEmbedUrl(m.file_url) : "https://www.youtube-nocookie.com/embed/J_bf_KE5llQ?rel=0&modestbranding=1"));
 
   const overlay = document.createElement("div");
   overlay.className = "modal-overlay";

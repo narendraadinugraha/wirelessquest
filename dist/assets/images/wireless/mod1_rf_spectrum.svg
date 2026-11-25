@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+  <rect width="600" height="400" fill="#090e1a"/>
+  <g stroke="#1e293b" stroke-width="1">
+    <line x1="0" y1="200" x2="600" y2="200"/><line x1="300" y1="0" x2="300" y2="400"/>
+  </g>
+  <!-- 2.4 GHz Long Wavelength -->
+  <path d="M 30 140 Q 105 40 180 140 T 330 140 T 480 140 T 630 140" fill="none" stroke="#10b981" stroke-width="4"/>
+  <!-- 5 GHz Medium Wavelength -->
+  <path d="M 30 220 Q 67 140 105 220 T 180 220 T 255 220 T 330 220 T 405 220 T 480 220 T 555 220" fill="none" stroke="#06b6d4" stroke-width="3.5"/>
+  <!-- 6 GHz Short High-Freq Wavelength -->
+  <path d="M 30 300 Q 48 250 67 300 T 105 300 T 142 300 T 180 300 T 217 300 T 255 300 T 292 300 T 330 300 T 367 300 T 405 300 T 442 300 T 480 300 T 517 300 T 555 300" fill="none" stroke="#818cf8" stroke-width="3"/>
+  <!-- Badges -->
+  <rect x="42" y="42" width="110" height="26" rx="6" fill="#0f172a" stroke="#10b981"/>
+  <text x="97" y="59" fill="#34d399" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">2.4 GHz RF</text>
+  <rect x="172" y="42" width="110" height="26" rx="6" fill="#0f172a" stroke="#06b6d4"/>
+  <text x="227" y="59" fill="#38bdf8" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">5 GHz UNII</text>
+  <rect x="302" y="42" width="110" height="26" rx="6" fill="#0f172a" stroke="#818cf8"/>
+  <text x="357" y="59" fill="#a5b4fc" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">6 GHz 6E</text>
+</svg>
